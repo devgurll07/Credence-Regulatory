@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
 
 const links = [
@@ -13,11 +13,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-navy text-white">
+    <header className="bg-white text-navy shadow-sm">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="/" className="text-xl font-bold">
-          Credence <span className="text-gold">Regulatory</span>
-        </a>
+          <a href="/" className="flex items-center">
+  <Image src="/logo.png" alt="Credence Regulatory" width={180} height={48} priority className="h-12 w-auto" />
+</a>
 
         <ul className="hidden gap-8 md:flex">
           {links.map((link) => (

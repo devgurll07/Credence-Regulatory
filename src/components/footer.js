@@ -1,11 +1,12 @@
+import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-navy text-gray-300">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-3">
         <div>
-          <h3 className="text-xl font-bold text-white">
-            Credence <span className="text-gold">Regulatory</span>
-          </h3>
+          <div className="inline-block rounded bg-white px-3 py-2">
+  <Image src="/logo.png" alt="Credence Regulatory" width={160} height={42} className="h-10 w-auto" />
+</div>
           <p className="mt-4 text-sm">
             Foreign company registration, document attestation and international
             trademark registration for global businesses.
