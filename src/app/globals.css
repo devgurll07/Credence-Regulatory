@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@theme {
+  --color-navy: #0b1f3a;
+  --color-navy-light: #14305a;
+  --color-gold: #c9a24b;
+  --color-cream: #f7f4ee;
+}
 
 :root {
   --background: #ffffff;

@@ -1,4 +1,9 @@
-import { Geist, Geist_Mono } from "next/font/google";
+
+import Navbar from "../components/Navbar";
+import { Inter, Playfair_Display } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,7 +27,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}></body>
     </html>
   );
 }
