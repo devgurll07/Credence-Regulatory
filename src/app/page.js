@@ -1,5 +1,5 @@
-
 import { services } from "../data/services";
+
 export default function Home() {
   return (
     <main>
@@ -18,30 +18,21 @@ export default function Home() {
               trademark registration, handled end to end by experts.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="/contact"
-                className="rounded bg-gold px-6 py-3 font-semibold text-navy hover:opacity-90"
-              >
+              <a href="/contact" className="rounded bg-gold px-6 py-3 font-semibold text-navy hover:opacity-90">
                 Get Free Consultation
               </a>
-              <a
-                href="/services"
-                className="rounded border border-white px-6 py-3 font-semibold hover:bg-white hover:text-navy"
-              >
+              <a href="/services" className="rounded border border-white px-6 py-3 font-semibold hover:bg-white hover:text-navy">
                 Explore Services
               </a>
             </div>
           </div>
-
           <div className="rounded-lg bg-navy-light p-8">
-            <p className="text-gray-300">
-              (img)
-            </p>
+            <p className="text-gray-300">(Yahan baad mein image aayegi)</p>
           </div>
         </div>
       </section>
 
-      {/* Trust numbers */}
+      {/* Trust numbers (placeholder, asli numbers baad mein) */}
       <section className="bg-cream">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-10 text-center md:grid-cols-4">
           {[
@@ -58,23 +49,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services (sirf ek baar) */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-  <h2 className="text-center font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy">
-    Our Services
-  </h2>
-  <div className="mt-10 grid gap-6 md:grid-cols-3">
-    {services.map((s) => (
-      <div key={s.slug} className="rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md">
-        <h3 className="text-xl font-semibold text-navy">{s.title}</h3>
-        <p className="mt-3 text-sm text-gray-600">{s.short}</p>
-        <a href={`/services/${s.slug}`} className="mt-4 inline-block font-semibold text-gold">
-          Learn more →
-        </a>
-      </div>
-    ))}
-  </div>
-</section>
+        <h2 className="text-center font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy">
+          Our Services
+        </h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {services.map((s) => (
+            <div key={s.slug} className="rounded-lg border border-gray-200 p-6 shadow-sm hover:shadow-md">
+              <h3 className="text-xl font-semibold text-navy">{s.title}</h3>
+              <p className="mt-3 text-sm text-gray-600">{s.short}</p>
+              <a href={`/services/${s.slug}`} className="mt-4 inline-block font-semibold text-gold">
+                Learn more →
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
-    
   );
 }
