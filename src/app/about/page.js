@@ -5,7 +5,8 @@ import VideoBox from "../../components/VideoBox";
 
 export const metadata = {
   title: "About Us | Credence Regulatory",
-  description: "Credence Regulatory helps global businesses with foreign company registration, document attestation and international trademark registration.",
+  description:
+    "Credence Regulatory helps global businesses with foreign company registration, document attestation and international trademark registration.",
 };
 
 const reasons = [
