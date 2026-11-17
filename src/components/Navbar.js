@@ -35,22 +35,13 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-8 font-medium lg:flex">
-            <div className="invisible absolute -left-40 top-full w-[44rem] pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-  <div className="grid max-h-[70vh] grid-cols-2 gap-1 overflow-y-auto rounded-lg bg-white p-3 shadow-xl ring-1 ring-black/5">
-    {services.map((s) => (
-      <Link key={s.slug} href={`/services/${s.slug}`} className="block rounded-md p-3 hover:bg-cream">
-        <p className="text-sm font-semibold text-navy">{s.title}</p>
-        <p className="mt-1 text-xs font-normal text-gray-500">{s.tagline}</p>
-      </Link>
-    ))}
-  </div>
-</div>
+            <li className="group relative">
               <Link href="/services" className={underline}>Services ▾</Link>
-              <div className="invisible absolute left-0 top-full w-96 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                <div className="rounded-lg bg-white p-3 shadow-xl ring-1 ring-black/5">
+              <div className="invisible absolute -left-40 top-full w-[44rem] pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                <div className="grid max-h-[70vh] grid-cols-2 gap-1 overflow-y-auto rounded-lg bg-white p-3 shadow-xl ring-1 ring-black/5">
                   {services.map((s) => (
                     <Link key={s.slug} href={`/services/${s.slug}`} className="block rounded-md p-3 hover:bg-cream">
-                      <p className="font-semibold text-navy">{s.title}</p>
+                      <p className="text-sm font-semibold text-navy">{s.title}</p>
                       <p className="mt-1 text-xs font-normal text-gray-500">{s.tagline}</p>
                     </Link>
                   ))}
@@ -79,10 +70,10 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="space-y-4 border-t px-6 pb-6 pt-4 lg:hidden">
+          <div className="max-h-[80vh] space-y-4 overflow-y-auto border-t px-6 pb-6 pt-4 lg:hidden">
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">Services</p>
             {services.map((s) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} onClick={close} className="block">
+              <Link key={s.slug} href={`/services/${s.slug}`} onClick={close} className="block text-sm">
                 {s.title}
               </Link>
             ))}
