@@ -5,6 +5,7 @@ import VideoBox from "../components/VideoBox";
 import { services } from "../data/services";
 import ServicesGrid from "../components/ServicesGrid";
 import Stats from "../components/Stats";
+import Testimonials from "../components/Testimonials";
 
 const ticker = [
   "Foreign Company Registration",
