@@ -53,7 +53,7 @@ export default function AboutPage() {
           </div>
         </Reveal>
         <Reveal>
-          <VideoBox title="Who We Are" /* youtubeId="PASTE_ID_HERE" */ />
+          <VideoBox title="Who We Are" src="/Videos/who-we-are.mp4" />
         </Reveal>
       </section>
 
@@ -73,10 +73,10 @@ export default function AboutPage() {
           </Reveal>
           <Reveal className="grid grid-cols-2 gap-4">
             <div className="relative mt-8 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
-              <Image src="/images/about/why-1.jpg" alt="Professional consultation" fill className="object-cover" />
+              <Image src="/images/about/Why-1.jpg" alt="Professional consultation" fill className="object-cover" />
             </div>
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
-              <Image src="/images/about/why-2.jpg" alt="Business documents and planning" fill className="object-cover" />
+              <Image src="/images/about/Why-2.jpg" alt="Business documents and planning" fill className="object-cover" />
             </div>
           </Reveal>
         </div>

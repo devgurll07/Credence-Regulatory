@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ServiceIcon from "../../../components/ServiceIcon";
 import { services } from "../../../data/services";
 
 export function generateStaticParams() {
@@ -21,12 +21,12 @@ export default async function ServiceDetail({ params }) {
 
   return (
     <main>
-      {/* Header with image */}
-      <section className="relative isolate overflow-hidden text-white">
-        <Image src={service.image} alt={service.title} fill priority className="-z-10 object-cover" />
-        <div className="absolute inset-0 -z-10 bg-navy/80" />
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <h1 className="max-w-3xl font-[family-name:var(--font-playfair)] text-4xl font-bold md:text-5xl">{service.title}</h1>
+      <section className="bg-gradient-to-br from-navy to-navy-light text-white">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <span className="text-gold"><ServiceIcon name={service.icon} className="h-12 w-12" /></span>
+          <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-playfair)] text-4xl font-bold md:text-5xl">
+            {service.title}
+          </h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-200">{service.tagline}</p>
         </div>
       </section>
@@ -38,55 +38,62 @@ export default async function ServiceDetail({ params }) {
             <p className="mt-4 text-gray-600">{service.overview}</p>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-bold text-navy">What We Cover</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {service.subServices.map((sub) => (
-                <div key={sub.title} className="rounded-lg border border-gray-200 p-5">
-                  <h3 className="font-semibold text-navy">{sub.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600">{sub.text}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-bold text-navy">Our Process</h2>
-            <ol className="mt-6 space-y-5">
-              {service.process.map((p, i) => (
-                <li key={p.title} className="flex gap-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold font-bold text-white">{i + 1}</span>
-                  <div>
-                    <p className="font-semibold text-navy">{p.title}</p>
-                    <p className="text-sm text-gray-600">{p.text}</p>
+          {service.subServices?.length > 0 && (
+            <section>
+              <h2 className="text-2xl font-bold text-navy">What We Cover</h2>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {service.subServices.map((sub) => (
+                  <div key={sub.title} className="rounded-lg border border-gold/30 p-5">
+                    <h3 className="font-semibold text-navy">{sub.title}</h3>
+                    <p className="mt-2 text-sm text-gray-600">{sub.text}</p>
                   </div>
-                </li>
-              ))}
-            </ol>
-          </section>
+                ))}
+              </div>
+            </section>
+          )}
 
-          <section>
-            <h2 className="text-2xl font-bold text-navy">Documents Required</h2>
-            <ul className="mt-4 list-disc space-y-2 pl-6 text-gray-700">
-              {service.documents.map((d) => <li key={d}>{d}</li>)}
-            </ul>
-            <p className="mt-3 text-xs text-gray-500">The exact list depends on your case. We confirm it after a short consultation.</p>
-          </section>
+          {service.process?.length > 0 && (
+            <section>
+              <h2 className="text-2xl font-bold text-navy">Our Process</h2>
+              <ol className="mt-6 space-y-5">
+                {service.process.map((p, i) => (
+                  <li key={p.title} className="flex gap-4">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold font-bold text-white">{i + 1}</span>
+                    <div>
+                      <p className="font-semibold text-navy">{p.title}</p>
+                      <p className="text-sm text-gray-600">{p.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
 
-          <section>
-            <h2 className="text-2xl font-bold text-navy">Frequently Asked Questions</h2>
-            <div className="mt-4 space-y-3">
-              {service.faqs.map((f) => (
-                <details key={f.q} className="rounded-lg border border-gray-200 p-4">
-                  <summary className="cursor-pointer font-semibold text-navy">{f.q}</summary>
-                  <p className="mt-3 text-sm text-gray-600">{f.a}</p>
-                </details>
-              ))}
-            </div>
-          </section>
+          {service.documents?.length > 0 && (
+            <section>
+              <h2 className="text-2xl font-bold text-navy">Documents Required</h2>
+              <ul className="mt-4 list-disc space-y-2 pl-6 text-gray-700">
+                {service.documents.map((d) => <li key={d}>{d}</li>)}
+              </ul>
+              <p className="mt-3 text-xs text-gray-500">The exact list depends on your case. We confirm it after a short consultation.</p>
+            </section>
+          )}
+
+          {service.faqs?.length > 0 && (
+            <section>
+              <h2 className="text-2xl font-bold text-navy">Frequently Asked Questions</h2>
+              <div className="mt-4 space-y-3">
+                {service.faqs.map((f) => (
+                  <details key={f.q} className="rounded-lg border border-gray-200 p-4">
+                    <summary className="cursor-pointer font-semibold text-navy">{f.q}</summary>
+                    <p className="mt-3 text-sm text-gray-600">{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
 
-        {/* Sticky sidebar */}
         <aside className="lg:sticky lg:top-28 lg:self-start">
           <div className="rounded-xl bg-navy p-6 text-white shadow-lg">
             <h3 className="text-xl font-semibold">Need help with this?</h3>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Reveal from "../components/Reveal";
 import VideoBox from "../components/VideoBox";
 import { services } from "../data/services";
+import ServicesGrid from "../components/ServicesGrid";
 
 const ticker = [
   "Foreign Company Registration",
@@ -26,7 +27,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-[#3b2a8f] text-white">
         <div className="bg-dots absolute inset-0" />
-        <Image src="/images/world-map.svg" alt="" fill priority aria-hidden className="object-cover opacity-20" />
+        <Image src="/images/dotted world map.jpg" alt="" fill priority aria-hidden className="object-cover opacity-20" />
         <div className="animate-float absolute -left-24 top-10 h-72 w-72 rounded-full bg-gold/30 blur-3xl" />
         <div className="animate-float absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
 
@@ -54,7 +55,7 @@ export default function Home() {
 
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/20">
-              <Image src="/images/hero.jpg" alt="International business team" fill priority className="object-cover" />
+              <Image src="/images/hero.webp" alt="International business team" fill priority className="object-cover" />
             </div>
             <div className="animate-float absolute -bottom-5 -left-5 rounded-lg bg-white px-4 py-3 text-sm font-semibold text-navy shadow-xl">
               ✅ Compliance-first approach
@@ -79,39 +80,13 @@ export default function Home() {
       </section>
 
       {/* SERVICES */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <Reveal>
-          <p className="text-center text-sm font-semibold uppercase tracking-widest text-gold">What We Do</p>
-          <h2 className="mt-2 text-center font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy md:text-4xl">
-            Services Built for International Growth
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {services.map((s) => (
-            <Reveal key={s.slug}>
-              <Link
-                href={`/services/${s.slug}`}
-                className="group block overflow-hidden rounded-xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image src={s.image} alt={s.title} fill className="object-cover transition duration-500 group-hover:scale-110" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-navy">{s.title}</h3>
-                  <p className="mt-3 text-sm text-gray-600">{s.short}</p>
-                  <span className="mt-4 inline-block font-semibold text-gold">Learn more →</span>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <ServicesGrid />
 
       {/* HOW WE WORK */}
       <section className="bg-cream">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
           <Reveal>
-            <VideoBox title="How We Work" poster="/images/how-we-work-poster.jpg" /* youtubeId="PASTE_ID_HERE" */ />
+            <VideoBox title="How We Work" src="/videos/How_We_Work.mp4" poster="/images/how-we-work-poster.jpg" />
           </Reveal>
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-widest text-gold">How We Work</p>
