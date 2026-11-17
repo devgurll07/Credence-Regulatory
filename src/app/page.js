@@ -4,6 +4,7 @@ import Reveal from "../components/Reveal";
 import VideoBox from "../components/VideoBox";
 import { services } from "../data/services";
 import ServicesGrid from "../components/ServicesGrid";
+import Stats from "../components/Stats";
 
 const ticker = [
   "Foreign Company Registration",
@@ -69,6 +70,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+       <Stats />
+      <Testimonials />
+
 
       {/* TICKER */}
       <section className="overflow-hidden bg-navy py-4 text-sm text-gray-300">

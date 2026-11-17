@@ -35,7 +35,16 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-8 font-medium lg:flex">
-            <li className="group relative">
+            <div className="invisible absolute -left-40 top-full w-[44rem] pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+  <div className="grid max-h-[70vh] grid-cols-2 gap-1 overflow-y-auto rounded-lg bg-white p-3 shadow-xl ring-1 ring-black/5">
+    {services.map((s) => (
+      <Link key={s.slug} href={`/services/${s.slug}`} className="block rounded-md p-3 hover:bg-cream">
+        <p className="text-sm font-semibold text-navy">{s.title}</p>
+        <p className="mt-1 text-xs font-normal text-gray-500">{s.tagline}</p>
+      </Link>
+    ))}
+  </div>
+</div>
               <Link href="/services" className={underline}>Services ▾</Link>
               <div className="invisible absolute left-0 top-full w-96 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
                 <div className="rounded-lg bg-white p-3 shadow-xl ring-1 ring-black/5">
