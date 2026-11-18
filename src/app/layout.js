@@ -1,8 +1,7 @@
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import WhatsAppButton from "../components/WhatsAppButton";
+import SiteShell from "../components/SiteShell";
+import Tracker from "../components/Tracker";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -23,10 +22,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
-        <WhatsAppButton />
+        <Tracker />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
