@@ -11,10 +11,12 @@ export default function Tracker() {
 
     let id = null;
     try {
-      id = localStorage.getItem("cr_vid");
-      if (!id) {
-        id = crypto.randomUUID();
-        localStorage.setItem("cr_vid", id);
+      if (localStorage.getItem("cr_consent") === "accepted") {
+        id = localStorage.getItem("cr_vid");
+        if (!id) {
+          id = crypto.randomUUID();
+          localStorage.setItem("cr_vid", id);
+        }
       }
     } catch {}
 

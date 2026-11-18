@@ -49,6 +49,7 @@ export default function Navbar() {
               </div>
             </li>
             <li><Link href="/about" className={underline}>About</Link></li>
+            <li><Link href="/blog" className={underline}>Blog</Link></li>
             <li><Link href="/contact" className={underline}>Contact</Link></li>
           </ul>
 
@@ -78,6 +79,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link href="/about" onClick={close} className="block">About</Link>
+            <Link href="/blog" onClick={close} className="block">Blog</Link>
             <Link href="/contact" onClick={close} className="block">Contact</Link>
             <div className="flex gap-3 pt-2">
               <Link href="/login" onClick={close} className="rounded border border-navy px-4 py-2">Login</Link>

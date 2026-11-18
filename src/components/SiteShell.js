@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
+import CookieBanner from "./CookieBanner";
 
 export default function SiteShell({ children }) {
   const pathname = usePathname();
@@ -14,6 +15,7 @@ export default function SiteShell({ children }) {
       {children}
       <Footer />
       <WhatsAppButton />
+      <CookieBanner />
     </>
   );
 }
