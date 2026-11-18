@@ -1,4 +1,6 @@
 import EnquiryForm from "../../components/EnquiryForm";
+import FaqSection from "../../components/FaqSection";
+import { generalFaqs } from "../../data/faqs";
 
 export const metadata = {
   title: "Contact Us | Credence Regulatory",
@@ -26,6 +28,7 @@ export default function ContactPage() {
 
         <EnquiryForm />
       </div>
+            <FaqSection faqs={generalFaqs.slice(0, 5)} title="Before You Contact Us" background="bg-white" />
     </main>
   );
 }
