@@ -8,9 +8,15 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: "Credence Regulatory | Global Business Compliance Partner",
   description:
-    "Foreign company registration, document attestation and international trademark registration for global businesses.",
+    "Global business setup, trademark and IP, compliance, immigration, legal CA CS, trade and more for international businesses.",
+  openGraph: {
+    title: "Credence Regulatory",
+    description: "Your trusted partner for cross-border business.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
