@@ -6,7 +6,7 @@ import { services } from "../data/services";
 import ServicesGrid from "../components/ServicesGrid";
 import Stats from "../components/Stats";
 import Testimonials from "../components/Testimonials";
-import FaqSection from "../components/FaqSection";
+import ReviewForm from "../components/ReviewForm";
 import { generalFaqs } from "../data/faqs";
 
 const ticker = [
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
       </section>
 
-       <FaqSection faqs={generalFaqs} background="bg-cream" />
+      <FaqSection faqs={generalFaqs} background="bg-white" aside={<ReviewForm />} />
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-navy to-navy-light text-white">
