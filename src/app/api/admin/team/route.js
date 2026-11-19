@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { supabase } from "../../../../lib/supabase";
 import { requireAdmin } from "../../../../lib/adminAuth";
-import { services } from "../../../../data/services";
+import { allServices as services } from "../../../../data/allServices";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const titles = services.map((s) => s.title);

@@ -8,6 +8,7 @@ import Stats from "../components/Stats";
 import Testimonials from "../components/Testimonials";
 import FaqSection from "../components/FaqSection";
 import { generalFaqs } from "../data/faqs";
+import HeroVideo from "../components/HeroVideo";
 import ReviewForm from "../components/ReviewForm";
 
 const ticker = [
@@ -31,8 +32,7 @@ export default function Home() {
     <main>
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-[#3b2a8f] text-white">
-        <div className="bg-dots absolute inset-0" />
-        <Image src="/images/dotted world map.jpg" alt="" fill priority aria-hidden className="object-cover opacity-20" />
+        <HeroVideo src="/videos/hero.mp4" poster="/images/hero.jpg" alt="International business team" />
         <div className="animate-float absolute -left-24 top-10 h-72 w-72 rounded-full bg-gold/30 blur-3xl" />
         <div className="animate-float absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
 
@@ -87,7 +87,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-
+      <PopularServices />
       {/* SERVICES */}
       <ServicesGrid />
 

@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { services } from "../data/services";
+import { allServices } from "../data/allServices";
 
-export default function EnquiryForm() {
+export default function EnquiryForm({ defaultService = "" }) {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   async function handleSubmit(e) {
@@ -35,9 +35,9 @@ export default function EnquiryForm() {
       <input name="phone" required placeholder="Phone / WhatsApp (with country code)" className={input} />
       <input name="country" required placeholder="Your Country" className={input} />
 
-      <select name="service" required className={input} defaultValue="">
+      <select name="service" required className={input} defaultService="">
         <option value="" disabled>Select a Service</option>
-        {services.map((s) => (
+        {allServices.map((s) => (
           <option key={s.slug} value={s.title}>{s.title}</option>
         ))}
       </select>

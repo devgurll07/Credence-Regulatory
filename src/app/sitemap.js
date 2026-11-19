@@ -1,4 +1,4 @@
-import { services } from "../data/services";
+import { allServices } from "../data/allServices";
 import { supabase } from "../lib/supabase";
 
 const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
