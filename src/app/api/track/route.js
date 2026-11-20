@@ -26,7 +26,7 @@ export async function POST(request) {
       visitor_id: typeof visitorId === "string" ? visitorId.slice(0, 64) : null,
       source,
       device,
-      country: request.headers.get("x-vercel-ip-country") || null,
+     country: request.headers.get("x-vercel-ip-country") || request.headers.get("cf-ipcountry") || null,
     });
   } catch (e) {
     console.error("Track error:", e);
