@@ -75,3 +75,34 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .hero-zoom, .hero-glow, .hero-dot { animation: none; }
 }
+
+@keyframes blobMove1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 30px) scale(1.15); }
+}
+@keyframes blobMove2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -30px) scale(1.1); }
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes ringPulse {
+  0% { transform: scale(0.6); opacity: 0.5; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.blob-1 { animation: blobMove1 18s ease-in-out infinite; }
+.blob-2 { animation: blobMove2 22s ease-in-out infinite; }
+.bg-shift { background-size: 200% 200%; animation: gradientShift 16s ease infinite; }
+.ring-pulse { animation: ringPulse 6s ease-out infinite; }
+.dots-light {
+  background-image: radial-gradient(rgba(28, 33, 68, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob-1, .blob-2, .bg-shift, .ring-pulse { animation: none; }
+}

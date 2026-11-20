@@ -1,10 +1,11 @@
 // Sirf asli client reviews, permission ke saath. rating 1-5 asli honi chahiye.
 // Optional fields: title, role, company, country, photo
+// Photos: public/images/testimonials/ folder mein rakho (site par /images/testimonials/<file> se milti hain)
 export const testimonials = [
-  { rating: 5, quote: "Smooth process and professional support. Thank you!", name: "Nishtha Singh" },
-  { rating: 5, quote: "Timely service with great results. Highly reliable.", name: "Nancy Jain" },
-  { rating: 5, quote: "Helpful team. Quick and stress-free experience.", name: "Krishna Paliwal" },
-  { rating: 5, quote: "Great service and prompt support. Impressed!", name: "Ashish Kumar Paharia" },
-  { rating: 5, quote: "Fast updates and smooth process. Very happy!", name: "Rohit Poria" },
-  { rating: 5, quote: "All legal help in one place. Very efficient.", name: "Saket Singh" },
+  { rating: 5, quote: "Got help with our company registration. The process was quite smooth, and the team kept us updated. Good experience overall!", name: "Nishtha Singh", photo: "/images/testimonials/nishtha-singh.jpeg" },
+  { rating: 5, quote: "Had a few questions regarding compliance, and the team explained everything patiently. Really helpful support.", name: "Nancy Jain", photo: "/images/testimonials/nancy.jpeg" },
+  { rating: 5, quote: "Needed guidance with manufacturing-related registrations. The team was responsive and helped us understand the documentation process.", name: "Krishna Paliwal", photo: "/images/testimonials/Krishna-Paliwal.webp" },
+  { rating: 5, quote: "Good experience working with the team. They guided us through the documentation requirements and responded whenever we had questions.", name: "Ashish Kumar Paharia", photo: "/images/testimonials/ashish-kumar-paharia.webp" },
+  { rating: 5, quote: "Wasn't sure where to start with the licensing process, but their guidance made things much easier. Thank you for the support!", name: "Rohit Poria", photo: "/images/testimonials/rohit-poria.jpeg" },
+  { rating: 5, quote: "Professional service and clear communication. Got proper responses to my queries, and the overall coordination was good.", name: "Saket Singh", photo: "/images/testimonials/Saket-Singh.png" },
 ];

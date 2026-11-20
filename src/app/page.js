@@ -9,8 +9,8 @@ import FaqSection from "../components/FaqSection";
 import ReviewForm from "../components/ReviewForm";
 import HeroScene from "../components/HeroScene";
 import BgMedia from "../components/BgMedia";
+import SectionBg from "../components/SectionBg";
 import { generalFaqs } from "../data/faqs";
-
 
 const ticker = [
   "Foreign Company Registration",
@@ -39,7 +39,7 @@ export default function Home() {
         motionVideo="/videos/hero-motion.mp4"
       />
 
-      {/* TAKE YOUR BUSINESS ACROSS BORDERS (video background) */}
+      {/* TAKE YOUR BUSINESS ACROSS BORDERS */}
       <section className="relative overflow-hidden bg-navy text-white">
         <BgMedia
           video="/videos/section-bg.mp4"
@@ -47,9 +47,7 @@ export default function Home() {
           alt="Global network background"
           opacity={0.5}
         />
-
         <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy-light/75 to-[#3b2a8f]/80" />
-
         <div className="animate-float absolute -left-24 top-10 h-72 w-72 rounded-full bg-gold/25 blur-3xl" />
         <div className="animate-float absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
 
@@ -66,16 +64,10 @@ export default function Home() {
               trademark registration, handled end to end by experts.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="rounded bg-gold px-7 py-3 font-semibold text-white shadow-lg transition hover:scale-105"
-              >
+              <Link href="/contact" className="rounded bg-gold px-7 py-3 font-semibold text-white shadow-lg transition hover:scale-105">
                 Talk to an Expert
               </Link>
-              <Link
-                href="/services"
-                className="rounded border border-white px-7 py-3 font-semibold transition hover:bg-white hover:text-navy"
-              >
+              <Link href="/services" className="rounded border border-white px-7 py-3 font-semibold transition hover:bg-white hover:text-navy">
                 Explore Services
               </Link>
             </div>
@@ -105,7 +97,9 @@ export default function Home() {
       </section>
 
       <Stats />
-      <Testimonials />
+
+      {/* REVIEWS (home-review.jpeg) */}
+      <Testimonials bgImage="/images/home-review.jpeg" />
 
       {/* TICKER */}
       <section className="overflow-hidden bg-navy py-4 text-sm text-gray-300">
@@ -116,12 +110,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <ServicesGrid />
+      {/* OUR SERVICES (our-services.jpeg) */}
+      <div className="relative overflow-hidden bg-white">
+        <SectionBg image="/images/our-services.jpeg" />
+        <div className="relative z-10">
+          <ServicesGrid />
+        </div>
+      </div>
 
-      {/* HOW WE WORK */}
-      <section className="bg-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
+      {/* HOW WE WORK (home-how-we-work.jpeg) */}
+      <section className="relative overflow-hidden bg-cream">
+        <SectionBg image="/images/home-how-we-work.jpeg" overlay="bg-cream/75" />
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
           <Reveal>
             <VideoBox title="How We Work" src="/videos/How_We_Work.mp4" poster="/images/how-we-work-poster.jpg" />
           </Reveal>
@@ -138,7 +138,7 @@ export default function Home() {
                   </span>
                   <div>
                     <p className="font-semibold text-navy">{st.title}</p>
-                    <p className="text-sm text-gray-600">{st.text}</p>
+                    <p className="text-sm text-gray-700">{st.text}</p>
                   </div>
                 </li>
               ))}
@@ -147,7 +147,13 @@ export default function Home() {
         </div>
       </section>
 
-      <FaqSection faqs={generalFaqs} background="bg-white" aside={<ReviewForm />} />
+      {/* FAQ (faq.jpeg) */}
+      <FaqSection
+        faqs={generalFaqs}
+        background="bg-white"
+        aside={<ReviewForm />}
+        bgImage="/images/faq.jpeg"
+      />
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-navy to-navy-light text-white">

@@ -1,4 +1,6 @@
 import Reveal from "./Reveal";
+import AnimatedBg from "./AnimatedBg";
+import SectionBg from "./SectionBg";
 
 export default function FaqSection({
   faqs,
@@ -6,6 +8,7 @@ export default function FaqSection({
   eyebrow = "FAQ",
   background = "bg-white",
   aside = null,
+  bgImage = null,
 }) {
   if (!faqs || faqs.length === 0) return null;
 
@@ -50,14 +53,15 @@ export default function FaqSection({
   );
 
   return (
-    <section className={background}>
+   <section className={`relative overflow-hidden ${background}`}>
+  {bgImage ? <SectionBg image={bgImage} /> : <AnimatedBg variant="light" />}
       {aside ? (
-        <div className="mx-auto grid max-w-7xl items-start gap-12 px-6 py-20 lg:grid-cols-2">
+       <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-12 px-6 py-20 lg:grid-cols-2">
           <div>{list}</div>
           <div className="rounded-2xl bg-cream p-4 sm:p-6 lg:sticky lg:top-28">{aside}</div>
         </div>
       ) : (
-        <div className="mx-auto max-w-3xl px-6 py-20">{list}</div>
+       <div className="relative z-10 mx-auto max-w-3xl px-6 py-20">{list}</div>
       )}
 
       <script

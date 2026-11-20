@@ -5,6 +5,9 @@ export const whyUs = [
   { title: "Draft Review & Formatting", text: "Every draft is reviewed and formatted properly before stamping or submission." },
 ];
 
+// NEW FIELDS added to each service below: advantages, disadvantages, timeline, mistakes, documentTips
+// (existing fields are kept and expanded)
+
 export const serviceContent = {
   "stamp-paper-notary": {
     overview:
@@ -14,13 +17,31 @@ export const serviceContent = {
       "Notarisation is the next step. A notary public checks the identity of the people signing, confirms that they sign willingly, and adds their seal and register entry. This gives the document extra credibility, but it does not replace registration where the law requires it.",
       "We handle both steps together, from the right stamp value and correct format to signing and notary attestation, so you do not have to run between different places.",
     ],
+    advantages: [
+      { title: "Wider Acceptance", text: "Banks, offices, embassies, colleges and departments are far more willing to accept a properly stamped and notarised document." },
+      { title: "Evidence Value", text: "A document on the correct stamp value is stronger evidence if a dispute reaches a court or authority." },
+      { title: "Identity and Consent Record", text: "The notary records who signed, when, and that they signed willingly, which reduces later disputes about identity." },
+      { title: "Clear Written Terms", text: "Putting terms on stamp paper replaces verbal understandings with a written record both sides can rely on." },
+      { title: "One Place for Everything", text: "Drafting, stamp value, printing, signing and attestation are handled together, which saves running around." },
+      { title: "Fewer Rejections", text: "Correct format and stamp value at the start avoids the document being returned and redone." },
+    ],
+    disadvantages: [
+      { title: "Stamp Duty Is a Cost", text: "Stamp duty varies by state and document type, and it is payable in addition to service and notary charges." },
+      { title: "Notarisation Is Not Registration", text: "A notarised document is not the same as a registered one. Some documents, such as sale deeds, must also be registered." },
+      { title: "Notary Does Not Check the Content", text: "The notary verifies identity and signatures, not whether the statements in the document are true or legally sound." },
+      { title: "Presence Is Usually Required", text: "Signatories generally have to appear before the notary with ID, which can be difficult for people who are travelling or abroad." },
+      { title: "Wrong or Short Stamp Causes Problems", text: "A short or wrong stamp can make the document difficult to use as evidence until the shortfall and any penalty are paid." },
+      { title: "Stamp Paper Can Expire in Some States", text: "Some states have a validity period for stamp papers, so an old paper may not be usable for a new document." },
+    ],
     procedure: [
-      { title: "Share Your Requirement", text: "Tell us what document you need and what it is for." },
+      { title: "Share Your Requirement", text: "Tell us what document you need and what it is for, such as a bank, visa, college or government office." },
       { title: "Document and Stamp Value Check", text: "We confirm the document type and the stamp value applicable in your state." },
-      { title: "Draft Review and Formatting", text: "We draft the document or review yours and format it properly." },
-      { title: "Stamp Paper Arranged", text: "Stamp paper or an e-stamp certificate is arranged and the document is printed on it." },
+      { title: "Collect Details and Documents", text: "You share the details of all parties along with ID and address proof." },
+      { title: "Draft Review and Formatting", text: "We draft the document or review yours, correct the format and share it for your approval." },
+      { title: "Stamp Paper Arranged", text: "Stamp paper or an e-stamp certificate is arranged and the approved document is printed on it." },
       { title: "Signing Before the Notary", text: "Signatories sign with ID proof, and witnesses where needed, before the notary." },
-      { title: "Delivery", text: "You receive the final notarised document, with a scanned copy." },
+      { title: "Notary Attestation", text: "The notary verifies identity, adds the seal, signature and register entry." },
+      { title: "Delivery", text: "You receive the final notarised document, with a scanned copy for your records." },
     ],
     whoUses: [
       "Tenants and landlords signing rental documents",
@@ -48,22 +69,39 @@ export const serviceContent = {
       "The purpose of the document must be lawful",
     ],
     documents: [
-      "Photo ID and address proof of all signatories",
+      "Photo ID and address proof of all signatories (Aadhaar, PAN, passport, voter ID or driving licence)",
       "Passport-size photographs",
       "Draft document or details to prepare it",
       "Property papers, if the document relates to a property",
       "Witness ID proof, where required",
-      "Company documents, if a business is signing",
+      "Company documents and authority letter or board resolution, if a business is signing",
+      "Supporting proof for the statement being made, such as a gazette notification for a name change",
+    ],
+    documentTips: [
+      "Name, spelling and father's or spouse's name must match across your ID proofs and the document",
+      "Check every detail in the draft before printing on stamp paper, as corrections on stamp paper are difficult",
+      "Keep original IDs ready, as the notary may ask to see them",
+      "Ask for the document in the language the receiving office accepts",
     ],
     importance: [
       "A document on the correct stamp value is far more likely to be accepted by offices, banks and courts. A document with a short or wrong stamp can face problems when it is presented as evidence, and the shortfall may have to be paid with a penalty.",
       "Notarisation adds a record of who signed and when, which helps prevent disputes later about identity or consent. Doing it correctly the first time saves the cost and delay of redoing the document.",
+    ],
+    timeline: "Standard affidavits and agreements can often be completed within a day or two once all details and IDs are ready. Complex agreements take longer for drafting and review.",
+    mistakes: [
+      "Using the wrong stamp value for the state or document type",
+      "Spelling or name mismatch with ID proofs",
+      "Signing before the draft is fully checked",
+      "Assuming a notarised document is the same as a registered one",
+      "Using an old or expired stamp paper",
     ],
     faqs: [
       { q: "What is the difference between stamp paper and e-stamp?", a: "Both carry stamp duty. A physical stamp paper is bought from an authorised vendor, while an e-stamp certificate is generated electronically. Which one is used depends on state rules and the document." },
       { q: "Is a notarised document the same as a registered one?", a: "No. Notarisation verifies signatures. Some documents, such as property sale deeds, must also be registered with the sub-registrar to be legally valid." },
       { q: "How long does it take?", a: "Standard affidavits and agreements can often be completed quickly. We confirm the timing once you share your details." },
       { q: "Can this be done online?", a: "Parts of the process can be handled remotely, but signing before a notary generally needs the signatory to be present. We guide you on what is possible for your document." },
+      { q: "Who pays the stamp duty?", a: "It depends on the document and what the parties agree. In many rent agreements it is shared or paid by the tenant, but the parties can decide." },
+      { q: "Can a mistake in a notarised document be corrected?", a: "Usually a corrected document or a supplementary document has to be prepared. This is why we check the draft before it is printed on stamp paper." },
     ],
   },
 
@@ -75,12 +113,30 @@ export const serviceContent = {
       "The duration decides how the document must be executed. Leases for more than one year generally need to be registered, which is why many residential rentals are made for a shorter period, subject to state rules.",
       "We help you choose the right type of document for your situation and make sure it is stamped and executed as per the rules that apply to your state.",
     ],
+    advantages: [
+      { title: "Clear Terms for Both Sides", text: "Rent, deposit, maintenance, notice period and rules are written down, which avoids arguments later." },
+      { title: "Protection for the Landlord", text: "The agreement records the tenant's duties, the permitted use and the conditions for ending the tenancy." },
+      { title: "Protection for the Tenant", text: "The tenant has proof of the right to stay, the agreed rent and the deposit terms." },
+      { title: "Valid Address Proof", text: "A notarised or registered agreement is widely accepted as address proof by banks, offices and government departments." },
+      { title: "Needed for Business Registrations", text: "A valid lease is usually required for GST and company registration at a rented address." },
+      { title: "Evidence in a Dispute", text: "A stamped and executed agreement is stronger evidence if a dispute reaches a court or rent authority." },
+    ],
+    disadvantages: [
+      { title: "Stamp Duty and Registration Costs", text: "Stamp duty and, for longer leases, registration charges depend on the state and the rent and duration." },
+      { title: "Registration Needs More Steps", text: "Registered leases need both parties to visit the sub-registrar with documents, which takes more time." },
+      { title: "Notarised Is Not Registered", text: "A notarised short-term agreement is easier, but it does not give the same strength as a registered lease." },
+      { title: "Lock-In Can Bind You", text: "A lock-in period or penalty clause can be costly if you need to leave early." },
+      { title: "Changes Need a New Document", text: "Changes to rent or terms generally require a fresh agreement or a written addendum." },
+      { title: "Rules Differ by State", text: "Rent control, stamp duty and registration rules vary, so an agreement copied from another state may not work." },
+    ],
     procedure: [
       { title: "Share the Details", text: "Property address, rent, deposit, duration and details of both parties." },
-      { title: "Choose the Document Type", text: "We confirm whether a rent agreement or a registered lease deed is suitable." },
+      { title: "Choose the Document Type", text: "We confirm whether a rent agreement, leave and licence or a registered lease deed is suitable." },
       { title: "Drafting and Review", text: "We draft the agreement with clear clauses and both parties review it." },
-      { title: "Stamping", text: "The correct stamp value for your state is arranged." },
+      { title: "Agree on Final Terms", text: "Changes are made until both sides are satisfied." },
+      { title: "Stamping", text: "The correct stamp value for your state is arranged and the final draft is printed on it." },
       { title: "Execution", text: "Landlord, tenant and witnesses sign, with notary attestation or registration as required." },
+      { title: "Registration, Where Required", text: "For longer leases, both parties and witnesses appear before the sub-registrar for registration." },
       { title: "Delivery", text: "Both parties receive their copies, with a scanned copy for your records." },
     ],
     whoUses: [
@@ -107,19 +163,39 @@ export const serviceContent = {
     ],
     documents: [
       "ID and address proof of landlord and tenant",
-      "Ownership proof of the property, such as a sale deed or electricity bill",
-      "Passport-size photographs",
-      "Company documents, if a business is the tenant",
+      "Ownership proof of the property, such as a sale deed, property tax receipt or electricity bill",
+      "Passport-size photographs of both parties",
+      "Company documents and authority letter, if a business is the tenant",
+      "GST or PAN details, if the lease is commercial",
       "Witness ID proof",
+      "Power of attorney, if the landlord is represented by someone else",
+      "Society or association NOC, where the property is in a society",
+    ],
+    documentTips: [
+      "Check that the landlord's name on the agreement matches the ownership papers",
+      "Mention the exact rent, deposit, rent increase, notice period and lock-in clearly",
+      "Record the condition of the property and the list of fittings in an annexure",
+      "For commercial use, state the permitted business use to avoid later disputes",
     ],
     importance: [
       "A written agreement avoids disputes about rent, deposit, repairs and exit. It also gives the tenant a document accepted as address proof by banks, offices and government departments.",
       "For businesses, a valid lease is needed for GST and company registration, so errors in the agreement can delay the whole registration.",
     ],
+    timeline: "A simple rent agreement can often be ready in a day or two. A registered lease takes longer because of sub-registrar appointments.",
+    mistakes: [
+      "Making an agreement without checking the owner's title or authority",
+      "Leaving out the notice period, lock-in and increase clauses",
+      "Using the wrong stamp value",
+      "Not recording the security deposit and its refund terms",
+      "Using a residential agreement for a commercial purpose",
+    ],
     faqs: [
       { q: "Why are many rent agreements made for 11 months?", a: "Leases for more than one year generally need registration, which adds cost and steps. Many residential rentals use a shorter period. The exact rule depends on your state." },
       { q: "Can I use a rent agreement as address proof?", a: "Often yes, but acceptance depends on the office asking for it. Notarised or registered agreements are more widely accepted." },
       { q: "Do I need a registered lease for an office?", a: "For longer commercial leases, registration is usually needed. We confirm what applies to your property and state." },
+      { q: "Who pays the stamp duty on a rent agreement?", a: "It depends on what the landlord and tenant agree. Often it is shared or paid by the tenant." },
+      { q: "Can the rent be increased during the agreement?", a: "Only as per the terms in the agreement. This is why the increase clause should be written clearly." },
+      { q: "Is a rent agreement valid without the owner's signature?", a: "No. The owner or an authorised person must sign, otherwise the agreement may not hold up." },
     ],
   },
 };

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Reveal from "../../components/Reveal";
 import VideoBox from "../../components/VideoBox";
 import BgMedia from "../../components/BgMedia";
+import AnimatedBg from "../../components/AnimatedBg";
 
 
 export const metadata = {
@@ -83,14 +84,30 @@ export default function AboutPage() {
   </div>
 </section>
 
-      <section className="bg-navy text-white">
-        <div className="mx-auto max-w-4xl px-6 py-14 text-center">
-          <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold">Let's Talk About Your Business</h2>
-          <Link href="/contact" className="mt-6 inline-block rounded bg-gold px-6 py-3 font-semibold text-white hover:opacity-90">
-            Talk to an Expert
-          </Link>
-        </div>
-      </section>
+      <section className="relative overflow-hidden bg-navy text-white">
+  <AnimatedBg variant="dark" />
+  <div className="relative z-10 mx-auto max-w-4xl px-6 py-20 text-center">
+    <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold md:text-5xl">
+      Let's Talk About Your Business
+    </h2>
+    <p className="mt-4 text-lg text-gray-200">
+      Share your requirement and our experts will guide you on the next steps.
+    </p>
+    <div className="mt-8 flex flex-wrap justify-center gap-4">
+      <Link href="/contact" className="rounded bg-gold px-8 py-3 font-semibold text-white shadow-lg transition hover:scale-105">
+        Talk to an Expert
+      </Link>
+      <a
+        href="https://wa.me/918800672422"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="rounded border border-white px-8 py-3 font-semibold transition hover:bg-white hover:text-navy"
+      >
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
     </main>
   );
 }
