@@ -559,5 +559,710 @@ export const serviceContent = {
       { q: "Can I get an IEC as an individual?", a: "Yes. Individuals, proprietors, firms, LLPs and companies can apply, using their PAN." },
     ],
   },
+
+    "property-registry": {
+    overview:
+      "Property registration records your ownership in government records at the sub-registrar's office. We check the papers, prepare the deed, work out the stamp duty and fee, and guide you through the registration visit.",
+    about: [
+      "Registration is the official recording of a property transaction, such as a sale, gift or long-term lease, in government records. Under the Registration Act, certain documents about immovable property must be registered to be valid and to serve as proof of your title.",
+      "Stamp duty and registration charges are fixed by each state and depend on the property value and type. The buyer and seller, along with witnesses, appear before the sub-registrar, who verifies identity and records the document.",
+    ],
+    advantages: [
+      { title: "Legal Proof of Ownership", text: "A registered deed is the main document that proves you own the property." },
+      { title: "Protection From Fraud", text: "A public record makes double sale and false claims harder." },
+      { title: "Easier Loans and Resale", text: "Banks and future buyers ask for registered title documents." },
+      { title: "Public Record", text: "The transaction is recorded with the government and can be checked later." },
+    ],
+    disadvantages: [
+      { title: "A Large Cost", text: "Stamp duty and registration fee are a significant part of the cost, and they differ by state." },
+      { title: "Presence Is Needed", text: "Parties and witnesses generally have to appear in person, unless a valid power of attorney is used." },
+      { title: "Appointments and Delays", text: "Appointment slots and document checks can take time." },
+      { title: "Does Not Fix a Bad Title", text: "Registration records a transfer. It does not cure a defect in the seller's title." },
+    ],
+    procedure: [
+      { title: "Title and Document Check", text: "We check the seller's title papers, encumbrance records and approvals before you commit." },
+      { title: "Draft the Deed", text: "The sale deed or relevant document is drafted and approved by both parties." },
+      { title: "Stamp Duty and Fee", text: "The stamp duty and registration fee for your state are calculated and paid." },
+      { title: "Appointment", text: "A slot is booked at the sub-registrar office." },
+      { title: "Registration Visit", text: "Buyer, seller and two witnesses appear with ID for verification, photographs and signatures." },
+      { title: "After Registration", text: "You collect the registered deed and apply for mutation in the municipal or revenue records." },
+    ],
+    whoUses: [
+      "Buyers and sellers of homes, shops, plots and offices",
+      "Families transferring property by gift or relinquishment",
+      "Investors buying property",
+      "Businesses buying or leasing premises",
+    ],
+    eligibility: [
+      "The seller must have a clear right to sell the property",
+      "Both parties must be adults and legally able to contract",
+      "The property should be free of disputes, or any loan must be cleared with the lender's permission",
+      "Valid ID and address proof of both parties",
+    ],
+    documents: [
+      "ID and address proof of buyer and seller, with PAN",
+      "Passport-size photographs",
+      "Previous title deeds and the chain of ownership",
+      "Encumbrance certificate",
+      "Property tax receipts and utility bills",
+      "Approved plan and NOCs, where required",
+      "Society NOC and no-dues certificate, for flats",
+      "Two witnesses with ID proof",
+    ],
+    documentTips: [
+      "Check that the seller's name matches the ownership papers exactly",
+      "Verify the encumbrance certificate for a long enough period before paying",
+      "Pay through banking channels and keep records of every payment",
+    ],
+    importance: [
+      "A registered deed is the main proof that the property belongs to you. A transfer that is not registered when the law requires it may not be accepted as valid title.",
+      "Because property is usually the biggest purchase a person makes, a careful title check and proper registration protect you from fraud and later disputes.",
+    ],
+    mistakes: [
+      "Skipping the title and encumbrance check",
+      "Paying part of the price in cash without records",
+      "Not applying for mutation after registration",
+    ],
+    faqs: [
+      { q: "Is registration compulsory?", a: "For the sale of immovable property, registration is generally required by law. We confirm the rule for your state and document." },
+      { q: "Can someone attend on my behalf?", a: "In many cases yes, through a properly executed power of attorney, as per local rules." },
+      { q: "What is mutation?", a: "It is the change of the owner's name in municipal or revenue records after the transfer. It is separate from registration and is important for property tax." },
+    ],
+  },
+
+  "contract-drafting": {
+    overview:
+      "A well-drafted contract protects your deal before problems start. We prepare clear, balanced contracts around your business, your risks and the law, and review contracts sent to you.",
+    about: [
+      "Under the Indian Contract Act, a valid contract needs an offer, acceptance, lawful consideration, parties who are able to contract, free consent and a lawful purpose. Good drafting turns these basics into clear terms that both sides can follow.",
+      "A strong contract covers the scope of work, payment terms, timelines, confidentiality, ownership of work, termination, liability, dispute resolution and the courts that will decide a dispute.",
+    ],
+    advantages: [
+      { title: "Fewer Disputes", text: "Written terms replace assumptions, so there is less room for arguments." },
+      { title: "Clear Responsibilities", text: "Each side knows what to deliver, by when and for what payment." },
+      { title: "Risk Protection", text: "Clauses on liability, confidentiality and termination limit your exposure." },
+      { title: "Strong Evidence", text: "A signed contract is solid proof if a dispute reaches a court." },
+    ],
+    disadvantages: [
+      { title: "Time and Cost", text: "Drafting and negotiating takes effort compared with a handshake deal." },
+      { title: "Can Become Rigid", text: "Very detailed terms can make later changes harder, so amendments need a written record." },
+      { title: "Cannot Make Illegal Terms Valid", text: "A clause that is against the law is not enforceable, however it is worded." },
+      { title: "Needs Updating", text: "Contracts should be reviewed when the business or the law changes." },
+    ],
+    procedure: [
+      { title: "Understand the Deal", text: "We learn about the parties, the work, the money and the risks." },
+      { title: "Draft the Contract", text: "A first draft is prepared with the right clauses for your situation." },
+      { title: "Review and Negotiate", text: "You and the other side review the draft, and changes are made." },
+      { title: "Finalise and Stamp", text: "The final version is formatted and stamped as per state rules." },
+      { title: "Sign and Execute", text: "Parties sign, with witnesses or notary attestation if needed." },
+      { title: "Keep a Record", text: "You receive signed copies and a scanned set for your files." },
+    ],
+    whoUses: [
+      "Businesses working with vendors, clients and partners",
+      "Freelancers and consultants",
+      "Startups signing their first customer and founder agreements",
+      "Individuals entering service, loan or sale arrangements",
+    ],
+    eligibility: [
+      "All parties must be adults of sound mind, or a company acting through an authorised person",
+      "The purpose of the contract must be lawful",
+      "Consent must be free, without force or fraud",
+      "The person signing must have authority to sign",
+    ],
+    documents: [
+      "ID and address proof of the parties",
+      "Company documents and authority letter, if a company is signing",
+      "Summary of the deal: scope, price, dates and special terms",
+      "Earlier emails, quotations or term sheets",
+      "Drafts received from the other side, if any",
+    ],
+    documentTips: [
+      "Share every agreed point in writing before drafting begins",
+      "Write the exact legal names of the parties",
+      "State the payment dates, delivery dates and what happens on a delay",
+    ],
+    importance: [
+      "Most business disputes come from unclear promises. A clear contract is the cheapest protection you can have, because it settles questions before they turn into disputes.",
+    ],
+    mistakes: [
+      "Relying on verbal promises",
+      "Using a template that does not suit your business",
+      "Leaving out termination and dispute resolution clauses",
+      "Signing without reading the other side's draft",
+    ],
+    faqs: [
+      { q: "Does a contract need stamp paper?", a: "Many contracts need to be stamped as per state law, and the value depends on the type of contract. We confirm what applies." },
+      { q: "Is a verbal contract valid?", a: "It can be valid in many cases, but it is very difficult to prove. A written contract is far safer." },
+      { q: "Can you review a contract I have received?", a: "Yes. We review the draft, point out risky clauses and suggest changes." },
+    ],
+  },
+
+  "legal-notices": {
+    overview:
+      "A legal notice is a formal written demand that tells the other side about your grievance and what you want. We help you prepare and send a notice, or a reply to a notice you have received.",
+    about: [
+      "A legal notice states the facts, the claim and the action expected, such as payment, refund, delivery or stopping misuse, within a stated time. It is often the first step before going to court, and it creates a clear written record.",
+      "In some matters, such as claims against certain government authorities or cheque dishonour cases, a notice is required by law. A reply notice answers the allegations and protects your position.",
+    ],
+    advantages: [
+      { title: "Formal Record", text: "A notice documents your demand and the date it was made." },
+      { title: "Chance of Settlement", text: "Many matters are settled after a notice, without going to court." },
+      { title: "Shows You Are Serious", text: "A formal notice often gets the other side to respond." },
+      { title: "Supports Your Case", text: "It forms part of the evidence if the dispute goes further." },
+    ],
+    disadvantages: [
+      { title: "May Harden Positions", text: "A strongly worded notice can make the other side less willing to settle." },
+      { title: "No Guarantee of Response", text: "The other side may ignore the notice." },
+      { title: "Mistakes Can Hurt", text: "Wrong facts or missed deadlines can weaken your case." },
+      { title: "Cost and Time", text: "Preparing and sending a notice has a cost, and waiting for a response takes time." },
+    ],
+    procedure: [
+      { title: "Share Facts and Documents", text: "You explain what happened and give us the papers and messages." },
+      { title: "Assess the Claim", text: "We check the facts, the amount and what relief is realistic." },
+      { title: "Draft the Notice", text: "The notice is drafted clearly, with the facts, claim and deadline." },
+      { title: "Review and Approval", text: "You review and approve the final draft." },
+      { title: "Send With Proof", text: "The notice is sent by registered post, speed post or email, and the proof is kept." },
+      { title: "Follow Up", text: "We track delivery, wait for the response period and plan the next step." },
+    ],
+    whoUses: [
+      "Businesses with unpaid invoices",
+      "Landlords and tenants in a dispute",
+      "Customers seeking refund or replacement",
+      "Employees and employers with a pay or service dispute",
+      "Anyone who has received a notice and needs to reply",
+    ],
+    eligibility: [
+      "Any person or business with a genuine claim or grievance",
+      "The facts must be accurate and supported by documents",
+      "The exact name and address of the other party are needed",
+      "Time limits for some claims must be kept in mind",
+    ],
+    documents: [
+      "ID of the sender",
+      "Agreement, invoice, bill or other proof of the claim",
+      "Messages, emails and previous reminders",
+      "Proof of payments made or amounts due",
+      "Full name and address of the person receiving the notice",
+      "The notice received, if you are replying",
+    ],
+    documentTips: [
+      "Arrange papers in date order",
+      "Keep screenshots with dates visible",
+      "Do not exaggerate the facts, because wrong claims can be used against you",
+    ],
+    importance: [
+      "A notice gives the other side a fair chance to put things right and gives you a record that you asked first. If the matter goes to court, a properly prepared notice supports your case.",
+    ],
+    mistakes: [
+      "Sending a notice to a wrong or old address",
+      "Missing the time limit for the claim",
+      "Using aggressive language instead of clear facts",
+      "Ignoring a notice you have received",
+    ],
+    note: "A legal notice should be prepared and reviewed by a qualified legal professional. The information on this page is general and not legal advice.",
+    faqs: [
+      { q: "Is a notice mandatory before filing a case?", a: "Not always. In some cases, such as certain claims against government authorities or cheque dishonour, it is required by law. We tell you whether it applies to you." },
+      { q: "How long should I wait for a reply?", a: "The notice sets a reasonable period for the response. The period depends on the type of matter." },
+      { q: "What if I received a notice?", a: "Do not ignore it. Share it with us quickly so that a proper reply can be prepared in time." },
+    ],
+  },
+
+  "court-marriage-registration": {
+    overview:
+      "A court marriage is a simple, legal marriage solemnised by a Marriage Officer under the Special Marriage Act. We guide you on eligibility, prepare the documents and help with the process until you receive the marriage certificate.",
+    about: [
+      "The Special Marriage Act, 1954 allows two people to marry irrespective of religion or caste, without religious ceremonies. The marriage is solemnised before a Marriage Officer, usually the Sub-Divisional Magistrate or a similar officer, in the presence of three witnesses.",
+      "Couples who are already married under their personal law can also register the marriage to get an official certificate. The certificate is accepted as legal proof of marriage.",
+    ],
+    advantages: [
+      { title: "Legal Recognition", text: "The marriage is officially recorded and recognised." },
+      { title: "Official Proof", text: "The certificate helps with visas, bank accounts, insurance, name change and property matters." },
+      { title: "Open to All Religions", text: "People of different faiths can marry without converting." },
+      { title: "No Ceremony Needed", text: "The process is simple and does not depend on rituals." },
+    ],
+    disadvantages: [
+      { title: "Notice Period", text: "A notice is published for a fixed period before the marriage, which makes the process longer." },
+      { title: "Objections Are Possible", text: "Any person can raise an objection during the notice period, and it must be examined." },
+      { title: "More Paperwork", text: "Several documents, affidavits and witnesses are needed." },
+      { title: "Local Practice Differs", text: "Appointments and requirements vary by district." },
+    ],
+    procedure: [
+      { title: "Eligibility and Document Check", text: "We check that both parties meet the conditions and collect the documents." },
+      { title: "Application", text: "The notice of intended marriage is submitted to the Marriage Officer of the district." },
+      { title: "Notice Period", text: "The notice is displayed for a fixed period, during which objections can be raised." },
+      { title: "Solemnisation", text: "After the notice period, the couple and three witnesses appear before the Marriage Officer." },
+      { title: "Marriage Certificate", text: "The marriage is recorded and the certificate is issued." },
+    ],
+    whoUses: [
+      "Couples of different religions or communities",
+      "Couples who want a simple legal marriage",
+      "Couples who need a certificate for visa or immigration",
+      "Couples already married who want to register the marriage",
+    ],
+    eligibility: [
+      "Both parties must be unmarried, divorced or widowed",
+      "Both must be of sound mind and give free consent",
+      "Both must meet the minimum age set by law",
+      "They must not be within the prohibited degrees of relationship",
+      "One party generally must have lived in the district for a minimum period before the notice",
+    ],
+    documents: [
+      "Age proof of both parties, such as a birth certificate, school certificate or passport",
+      "Address proof of both parties, showing residence in the district",
+      "Passport-size photographs",
+      "Affidavits of marital status and eligibility",
+      "Divorce decree or death certificate of the earlier spouse, if applicable",
+      "ID proof of three witnesses",
+      "Passport and visa copies, if a party is a foreign national",
+    ],
+    documentTips: [
+      "Names and dates of birth must match across all documents",
+      "Address proof should clearly show residence in the district where you apply",
+      "Check the requirements of your district office, as they can differ",
+    ],
+    importance: [
+      "A marriage certificate is the legal proof of your marriage. It is needed for visas, spouse benefits, insurance, bank nominations and many legal matters.",
+    ],
+    mistakes: [
+      "Applying in a district where residence is not proved",
+      "Mismatch in names or dates of birth across documents",
+      "Not arranging three witnesses with valid ID",
+    ],
+    faqs: [
+      { q: "Are rituals or a ceremony required?", a: "No. A marriage under the Special Marriage Act is solemnised before the Marriage Officer without religious rituals." },
+      { q: "Can we register a marriage that already happened?", a: "Yes. A marriage solemnised earlier can be registered, with proof of the marriage and the required documents." },
+      { q: "Can foreign nationals marry under this Act?", a: "In many cases yes, with additional documents such as proof of marital status and a valid visa. Requirements vary, so we check them for you." },
+    ],
+  },
+
+  "live-in-relationship-certificate": {
+    overview:
+      "A live-in relationship agreement records the terms on which two adults live together. We prepare a clear notarised agreement or affidavit, so both partners have their understanding in writing.",
+    about: [
+      "There is no law in India that issues an official live-in relationship certificate. What can be prepared is a notarised agreement or affidavit, signed by both partners, that records their decision to live together and the terms they agree on.",
+      "Courts have recognised live-in relationships in various cases, but the rights of partners are not the same as those of married couples. The agreement does not replace the law. It records the intentions and arrangements of both partners.",
+    ],
+    advantages: [
+      { title: "Terms in Writing", text: "Responsibilities, expenses and living arrangements are recorded clearly." },
+      { title: "Clarity on Property", text: "The agreement can record who owns what and how shared expenses are handled." },
+      { title: "Supporting Document", text: "It can serve as supporting evidence of the arrangement when someone asks for it." },
+      { title: "Mutual Understanding", text: "Discussing the terms early reduces misunderstanding later." },
+    ],
+    disadvantages: [
+      { title: "Not a Marriage", text: "It does not give the legal status or automatic rights of marriage." },
+      { title: "No Official Registration", text: "There is no government register or certificate for live-in relationships." },
+      { title: "Cannot Override the Law", text: "A clause against the law is not enforceable, and the document does not bind other people." },
+      { title: "Acceptance Varies", text: "Landlords, offices and authorities may or may not accept it." },
+    ],
+    procedure: [
+      { title: "Discuss Your Requirement", text: "Both partners explain why they need the agreement and what it should cover." },
+      { title: "Eligibility Check", text: "We confirm that both are adults and free to enter the arrangement." },
+      { title: "Draft the Agreement", text: "A draft is prepared with terms on residence, expenses, property and responsibilities." },
+      { title: "Review and Approval", text: "Both partners review and approve the draft." },
+      { title: "Stamp Paper and Notarisation", text: "The agreement is printed on stamp paper, signed and notarised with witnesses." },
+    ],
+    whoUses: [
+      "Adult couples who choose to live together",
+      "Couples who want their arrangement recorded in writing",
+      "Couples who need a supporting document for a rented home",
+    ],
+    eligibility: [
+      "Both partners must be adults",
+      "Both must give free and informed consent",
+      "Neither should be in a relationship that makes the arrangement unlawful",
+      "Both must have valid ID proof",
+    ],
+    documents: [
+      "ID and address proof of both partners",
+      "Passport-size photographs",
+      "Details of the shared residence",
+      "Details of any shared expenses or property to be recorded",
+      "ID proof of witnesses",
+    ],
+    documentTips: [
+      "Be honest and complete about each partner's status, because false statements can cause legal trouble",
+      "Record the arrangement for shared expenses clearly",
+    ],
+    importance: [
+      "Having the understanding in writing helps prevent confusion and disputes, especially about residence, money and property.",
+    ],
+    mistakes: [
+      "Assuming the document gives the rights of marriage",
+      "Giving incorrect information about marital status",
+      "Copying a template without checking whether it suits your situation",
+    ],
+    note: "This is a private agreement and not an official certificate. Its legal effect depends on the facts and the law, so please speak to a qualified professional about your situation.",
+    faqs: [
+      { q: "Is a live-in relationship legal in India?", a: "There is no law that bans adults from living together, and courts have recognised such relationships in different cases. Rights differ from those of marriage." },
+      { q: "Is this an official certificate?", a: "No. No authority issues an official live-in certificate. We prepare a notarised agreement or affidavit." },
+      { q: "Will every landlord or office accept it?", a: "Not necessarily. Acceptance is up to the person or office asking for it." },
+    ],
+  },
+
+  "franchise-agreement": {
+    overview:
+      "A franchise agreement sets out the rights and duties of the brand owner and the person running the outlet. We prepare balanced franchise agreements that cover fees, territory, brand standards and exit.",
+    about: [
+      "In a franchise, the brand owner (franchisor) allows another person (franchisee) to use its brand, system and know-how in return for fees. India has no single franchise law, so contract law, trademark law and other general laws apply, which makes a careful agreement very important.",
+      "A good agreement covers the grant of rights and territory, term and renewal, initial fee and royalty, training and support, quality standards, supply arrangements, use of the trademark, non-compete terms, termination and dispute resolution.",
+    ],
+    advantages: [
+      { title: "Clear Rights and Territory", text: "Both sides know what the franchisee can do and where." },
+      { title: "Brand Protection", text: "The franchisor sets standards that keep the brand consistent." },
+      { title: "Defined Fees", text: "Initial fee, royalty and other payments are written down." },
+      { title: "Exit Terms", text: "Renewal, termination and handover rules reduce disputes at the end." },
+    ],
+    disadvantages: [
+      { title: "Less Independence", text: "Franchisees must follow the brand's rules and systems." },
+      { title: "Ongoing Fees", text: "Royalties and other fees continue for the whole term." },
+      { title: "Restrictive Clauses", text: "Non-compete and exclusivity terms can limit what you can do." },
+      { title: "One-Sided Drafts", text: "A draft from the stronger party can be unfair if it is not reviewed." },
+    ],
+    procedure: [
+      { title: "Understand the Business Model", text: "We learn about the brand, the fees, the support and your goals." },
+      { title: "Prepare or Review the Draft", text: "We draft the agreement or review the draft you received." },
+      { title: "Negotiate Key Terms", text: "Territory, fees, term, exit and other key points are discussed." },
+      { title: "Finalise and Stamp", text: "The final agreement is formatted and stamped as per state rules." },
+      { title: "Sign and Execute", text: "Both parties sign, with witnesses or notary attestation as needed." },
+      { title: "Brand Licence Records", text: "The trademark licence and other related records are put in order." },
+    ],
+    whoUses: [
+      "Brand owners who want to expand through franchising",
+      "Individuals and businesses buying a franchise",
+      "Master franchise holders",
+      "Foreign brands entering India",
+    ],
+    eligibility: [
+      "The franchisor must own or have the right to license the brand",
+      "Both parties must be legally able to contract",
+      "Business and trademark details must be accurate",
+      "Foreign franchisors must follow payment and foreign exchange rules",
+    ],
+    documents: [
+      "ID or company documents of both parties",
+      "Trademark registration or application details",
+      "Business plan or information memorandum",
+      "Details of the premises for the outlet",
+      "Fee and payment structure",
+      "Brand manual and operating standards",
+    ],
+    documentTips: [
+      "Check that the brand's trademark is registered or applied for",
+      "Ask for written details of every fee before signing",
+      "Understand the renewal and exit terms before you invest",
+    ],
+    importance: [
+      "A franchise is a long-term relationship with a large investment. A clear agreement protects the brand owner's reputation and the franchisee's money.",
+    ],
+    mistakes: [
+      "Unclear territory, which causes overlap with other outlets",
+      "No trademark protection for the brand",
+      "Ignoring exit, renewal and handover terms",
+      "Not listing every fee and cost",
+    ],
+    faqs: [
+      { q: "Is there a franchise law in India?", a: "There is no single dedicated franchise law. Contract, trademark and other general laws apply." },
+      { q: "Can a foreign brand franchise in India?", a: "Yes, subject to the applicable foreign exchange rules for payments and other regulations." },
+      { q: "What should I check before buying a franchise?", a: "Check the fees, territory, support, brand ownership and exit terms, and have the agreement reviewed before you sign." },
+    ],
+  },
+
+  "certified-copy": {
+    overview:
+      "A certified copy is an official copy of a public record, certified by the authority that holds the original. We identify the right office, prepare the application and help you obtain certified copies of court, registry and other official records.",
+    about: [
+      "A certified copy is an official copy of a document or record kept by a public authority, such as a court order, a registered deed or a municipal record. The authority certifies that it is a true copy of what is in its records.",
+      "It is different from a photocopy attested by a notary or gazetted officer. A certified copy comes from the authority that holds the original, and courts, banks and embassies often prefer it.",
+    ],
+    advantages: [
+      { title: "Official Evidence", text: "It is accepted as a true copy of the official record." },
+      { title: "Wide Acceptance", text: "Courts, banks, embassies and departments accept it." },
+      { title: "Solution for Lost Originals", text: "You can get a copy even if you have lost your own papers." },
+      { title: "Issued by the Record Holder", text: "The certification comes from the authority itself." },
+    ],
+    disadvantages: [
+      { title: "Waiting Time", text: "Offices can take time to search records and issue copies." },
+      { title: "Fees", text: "Fees or court-fee stamps are payable for each copy." },
+      { title: "Restrictions", text: "Some records can be given only to parties or on certain conditions." },
+      { title: "Details Needed", text: "Missing or wrong details can delay the search." },
+    ],
+    procedure: [
+      { title: "Identify the Record and Office", text: "We confirm which authority holds the record you need." },
+      { title: "Collect the Details", text: "Case number, year, names of parties, deed number or date are noted." },
+      { title: "Prepare the Application", text: "The application is drafted as per the office's format." },
+      { title: "Pay Fee and Submit", text: "Fee or court-fee stamps are paid and the application is submitted." },
+      { title: "Follow Up", text: "We track the application and handle queries from the office." },
+      { title: "Collect the Certified Copy", text: "You receive the certified copy, which can be scanned for your records." },
+    ],
+    whoUses: [
+      "Parties to a court case",
+      "Buyers and heirs who need a copy of a registered deed",
+      "Loan, visa and immigration applicants",
+      "Anyone who has lost an original document",
+    ],
+    eligibility: [
+      "The record must be a public record held by the authority",
+      "The applicant must follow the office's rules on who can apply",
+      "Enough details to find the record",
+      "Authority letter, if someone applies on behalf of the party",
+    ],
+    documents: [
+      "ID proof of the applicant",
+      "Details of the record: case number and year, party names, deed number or date",
+      "Name of the court, registry or office",
+      "Authority letter, if a representative applies",
+      "Fee or court-fee stamps",
+      "Earlier copy or reference, if available",
+    ],
+    documentTips: [
+      "The more details you give, the faster the search",
+      "Ask whether the office needs the copy for a particular purpose",
+      "Check the number of copies required before applying",
+    ],
+    importance: [
+      "Many legal, property and immigration matters need an official copy rather than a photocopy. A certified copy avoids doubts about whether the document is genuine.",
+    ],
+    mistakes: [
+      "Applying to the wrong office",
+      "Giving incomplete case or deed details",
+      "Confusing a notary-attested copy with a certified copy",
+    ],
+    faqs: [
+      { q: "Is a notary-attested copy the same?", a: "No. A certified copy is issued by the authority that holds the record. A notary only attests a copy that you provide." },
+      { q: "Who can get a certified copy?", a: "Public records can generally be obtained by applicants following that office's rules. Some records are available only to parties." },
+      { q: "How long does it take?", a: "It depends on the office and the record. We tell you what to expect after we identify the office." },
+    ],
+  },
+
+  "business-contracts": {
+    overview:
+      "Business contracts keep your dealings with vendors, clients and partners clear and enforceable. We draft and review the agreements your business signs most often.",
+    about: [
+      "Every business signs agreements: with customers, suppliers, partners, employees and service providers. Each type has its own key terms, and a standard template may not suit your case.",
+      "We prepare business contracts that cover scope, price, timelines, confidentiality, intellectual property, liability, termination and dispute resolution, in simple and clear language.",
+    ],
+    advantages: [
+      { title: "Clear Commercial Terms", text: "Price, delivery, payment and quality are agreed in writing." },
+      { title: "Confidentiality and IP Protection", text: "Your trade secrets and your work remain protected." },
+      { title: "Payment Security", text: "Payment terms and late payment consequences are recorded." },
+      { title: "Smooth Relationships", text: "Clear roles reduce friction with partners and vendors." },
+    ],
+    disadvantages: [
+      { title: "Negotiation Time", text: "Agreeing on terms can take several rounds." },
+      { title: "Cost of Drafting", text: "Professional drafting has a cost, though it is usually less than a dispute." },
+      { title: "Some Clauses Are Not Enforceable", text: "For example, many post-employment non-compete clauses are not enforceable in India." },
+      { title: "Needs Regular Updates", text: "Long-term contracts should be reviewed as the business changes." },
+    ],
+    procedure: [
+      { title: "Identify the Contract Needed", text: "We confirm the type of agreement for your relationship." },
+      { title: "Collect Commercial Terms", text: "You share price, scope, timelines and special conditions." },
+      { title: "Draft the Contract", text: "A tailored draft is prepared." },
+      { title: "Review and Negotiate", text: "Both sides review, and changes are made." },
+      { title: "Stamp and Sign", text: "The final contract is stamped and signed by authorised persons." },
+      { title: "Record Keeping", text: "Signed copies and a scanned set are delivered." },
+    ],
+    whoUses: [
+      "Companies, LLPs and proprietors",
+      "Startups signing their first customer and vendor contracts",
+      "Consultants and agencies",
+      "Distributors, resellers and manufacturers",
+    ],
+    popularDocs: [
+      "Service and consulting agreements",
+      "Vendor and supply agreements",
+      "Non-disclosure agreements (NDA)",
+      "Distribution and reseller agreements",
+      "Partnership deeds",
+      "Joint venture agreements",
+      "Shareholders' agreements",
+      "Employment and consultant agreements",
+    ],
+    eligibility: [
+      "Parties must be legally able to contract",
+      "The signer must have authority to bind the company",
+      "The purpose and terms must be lawful",
+    ],
+    documents: [
+      "Company registration documents and authority letter or board resolution",
+      "ID proof of the signers",
+      "Details of the deal: scope, price, timeline",
+      "Earlier proposals, quotations or emails",
+      "PAN and GST details of the parties",
+    ],
+    documentTips: [
+      "Use the exact legal names and addresses of the companies",
+      "Attach the scope of work and price list as a schedule",
+      "Record who owns the work created under the contract",
+    ],
+    importance: [
+      "A written contract is your first line of defence if a customer does not pay, a vendor does not deliver or a partner leaves. It also helps in raising funds or selling the business, because investors check contracts carefully.",
+    ],
+    mistakes: [
+      "Signing a vendor's standard form without reading it",
+      "No clause on who owns the work product",
+      "No limit on liability",
+      "Missing dispute resolution and jurisdiction terms",
+    ],
+    faqs: [
+      { q: "What is an NDA?", a: "A non-disclosure agreement keeps shared business information confidential and sets out what happens if it is leaked." },
+      { q: "Do contracts need to be stamped?", a: "Many do, as per state law. The value depends on the type of contract." },
+      { q: "Can you review a contract before I sign?", a: "Yes. We review it, point out risks and suggest changes." },
+    ],
+  },
+
+  "police-cyber-fraud-complaint": {
+    overview:
+      "If you have been cheated or have lost money online, quick and clear reporting matters. We help you prepare a complete complaint with the timeline and evidence, and guide you on where and how to file it.",
+    about: [
+      "Cyber and financial fraud cases are time-sensitive. For online financial fraud, you should report immediately on the National Cyber Crime Reporting Portal or call the helpline 1930, and inform your bank right away. Quick reporting can help in some cases to hold or trace the money.",
+      "A written complaint to the police or the cyber cell should set out what happened in order, with dates, amounts, account details and proof. We help you organise the facts and evidence so the complaint is complete and easy to act on. We cannot guarantee that an FIR will be registered or that money will be recovered.",
+    ],
+    advantages: [
+      { title: "A Clear, Complete Complaint", text: "A well-organised complaint is easier for the police to understand." },
+      { title: "Evidence in Order", text: "Screenshots, transaction details and messages are arranged and listed." },
+      { title: "A Record of Reporting", text: "You get a complaint number or acknowledgment that you reported the incident." },
+      { title: "Better Dealing With Banks", text: "A reference number supports your request to the bank or payment platform." },
+    ],
+    disadvantages: [
+      { title: "No Guarantee of Recovery", text: "Recovery of money depends on the investigation and how fast the fraud was reported." },
+      { title: "Time Is Critical", text: "Delay makes tracing money harder." },
+      { title: "Investigations Can Be Slow", text: "Cases can take a long time." },
+      { title: "Physical Visit May Be Needed", text: "Some steps need you to visit a police station or office." },
+    ],
+    procedure: [
+      { title: "Act Immediately", text: "Call 1930 or report on the cybercrime portal, and inform your bank and block cards or accounts if needed." },
+      { title: "Collect the Facts and Evidence", text: "Gather screenshots, transaction IDs, bank statements, phone numbers, links and messages." },
+      { title: "Draft the Complaint", text: "We prepare a clear complaint with the timeline, amount and evidence list." },
+      { title: "File the Complaint", text: "It is filed on the portal or at the police station or cyber cell, as appropriate." },
+      { title: "Get the Acknowledgment", text: "Note the complaint number or the acknowledgment and keep copies." },
+      { title: "Follow Up", text: "We guide you on follow-up and on the next legal steps if there is no action." },
+    ],
+    whoUses: [
+      "Victims of online payment or banking fraud",
+      "People cheated through fake offers, calls or links",
+      "Businesses facing online or financial fraud",
+      "Anyone who needs a written complaint to the police",
+    ],
+    eligibility: [
+      "Any person who has been a victim of fraud or cheating can report it",
+      "You need your own details and the details of the incident",
+      "Details of the other party, such as phone number, account or link, if known",
+    ],
+    documents: [
+      "ID and address proof of the complainant",
+      "Bank statements and transaction details",
+      "Screenshots of chats, calls, links and payment confirmation",
+      "Phone numbers, UPI IDs, account numbers and website links used by the fraudster",
+      "Proof of the amount lost",
+      "Any bank complaint and the response received",
+    ],
+    documentTips: [
+      "Do not delete any messages, call logs or apps related to the fraud",
+      "Take screenshots with the date and time visible",
+      "Note the exact time you noticed the fraud and when you informed the bank",
+    ],
+    importance: [
+      "In online fraud, the first hours matter the most. Reporting quickly and with complete details improves the chance that the authorities can act.",
+    ],
+    mistakes: [
+      "Waiting for days before reporting",
+      "Deleting messages or apps",
+      "Sharing OTPs or remote access again with someone claiming to help",
+      "Giving incomplete or inconsistent details in the complaint",
+    ],
+    note: "If you have just lost money online, call 1930 and inform your bank right now. Do not wait to submit a request on this page.",
+    faqs: [
+      { q: "What should I do first after an online fraud?", a: "Call the helpline 1930 or report on the National Cyber Crime Reporting Portal, and inform your bank immediately." },
+      { q: "Will an FIR definitely be registered?", a: "That depends on the police and the facts of the case. A complete complaint with proper evidence helps." },
+      { q: "Can I get my money back?", a: "It cannot be guaranteed. It depends on how fast the fraud was reported and on the investigation and bank process." },
+    ],
+  },
+
+  "consumer-complaint-rti": {
+    overview:
+      "We help you file consumer complaints for defective goods or poor service, and RTI applications to get information from public authorities. We draft the papers, choose the right forum and guide you through the steps.",
+    about: [
+      "A consumer complaint under the Consumer Protection Act, 2019 can be filed for defective goods, deficiency in service, unfair trade practices or overcharging. Complaints go to the District, State or National Commission, depending on the value of the claim, and can be filed online through the e-Daakhil portal.",
+      "The Right to Information Act, 2005 lets any citizen ask a public authority for information. The application goes to the Public Information Officer, who is generally expected to reply within 30 days. If you are not satisfied, you can file a first appeal and then a second appeal.",
+    ],
+    extra: [
+      {
+        title: "Consumer Complaint Process",
+        items: [
+          { title: "Written Complaint First", text: "We send a notice to the seller or service provider, so they have a chance to resolve the issue." },
+          { title: "Choose the Forum", text: "The right Consumer Commission is chosen based on the claim value and location." },
+          { title: "File the Complaint", text: "The complaint is drafted with the facts, documents and relief asked for, and filed with the fee." },
+          { title: "Hearings and Order", text: "The Commission hears both sides and passes an order, which may include refund, replacement or compensation." },
+        ],
+      },
+      {
+        title: "RTI Application Process",
+        items: [
+          { title: "Identify the Authority", text: "We find the correct public authority and Public Information Officer." },
+          { title: "Draft the Application", text: "Your questions are written clearly and specifically." },
+          { title: "Submit With Fee", text: "The application is filed online or by post with the prescribed fee." },
+          { title: "Reply and Appeal", text: "If there is no reply or the reply is unsatisfactory, we prepare the first appeal." },
+        ],
+      },
+    ],
+    advantages: [
+      { title: "Low-Cost Remedy", text: "Consumer Commissions are designed to be simpler than regular courts." },
+      { title: "Relief for the Consumer", text: "Orders can include refund, replacement, repair and compensation." },
+      { title: "Official Information", text: "RTI gives you information from government records." },
+      { title: "Online Filing", text: "Many complaints and applications can be filed online." },
+    ],
+    disadvantages: [
+      { title: "No Guaranteed Result", text: "The outcome depends on the evidence and the decision of the authority." },
+      { title: "It Takes Time", text: "Hearings, replies and appeals can take months." },
+      { title: "Evidence Is Needed", text: "Bills, warranty papers and messages must be kept." },
+      { title: "RTI Has Exemptions", text: "Some information is exempt from disclosure under the Act." },
+    ],
+    procedure: [
+      { title: "Understand the Issue", text: "You share what happened and the documents you have." },
+      { title: "Choose the Route", text: "We decide between a consumer complaint, an RTI application or both." },
+      { title: "Draft the Papers", text: "The complaint, notice or application is drafted clearly." },
+      { title: "File With Fee", text: "The papers are filed online or in person with the required fee." },
+      { title: "Follow Up", text: "We track the case or reply and prepare for hearings or appeals." },
+    ],
+    whoUses: [
+      "Consumers with defective goods or poor services",
+      "People overcharged or refused a refund",
+      "Citizens who want information from a government office",
+      "Businesses and individuals who need to reply to a complaint",
+    ],
+    eligibility: [
+      "A consumer who bought goods or paid for services can complain",
+      "For RTI, any citizen of India can apply",
+      "The complaint should be filed within the time limit set by law",
+      "The correct authority or opposite party must be identified",
+    ],
+    documents: [
+      "ID and address proof of the applicant",
+      "Bills, invoices and payment proof",
+      "Warranty or guarantee card, where applicable",
+      "Emails, messages and earlier complaints",
+      "Photos or reports showing the defect",
+      "For RTI: name of the public authority and the information sought",
+    ],
+    documentTips: [
+      "Keep every bill, receipt and message, because they decide the case",
+      "Describe the problem in order, with dates",
+      "For RTI, ask specific questions instead of general ones",
+    ],
+    importance: [
+      "These are practical remedies available to ordinary people. They help you get redress from sellers and service providers and access to information from public offices.",
+    ],
+    mistakes: [
+      "Filing after the time limit has passed",
+      "Not keeping bills and proof",
+      "Asking vague questions in an RTI application",
+      "Going to the wrong forum",
+    ],
+    faqs: [
+      { q: "Do I need a lawyer for a consumer complaint?", a: "It is not compulsory, but guidance on drafting and procedure helps." },
+      { q: "How long does the Public Information Officer have to reply to an RTI?", a: "Generally within 30 days. If there is no reply, you can file a first appeal." },
+      { q: "Can I file online?", a: "Yes. Consumer complaints can be filed through e-Daakhil, and many RTI applications can be filed through online portals." },
+    ],
+  },
 };
   
