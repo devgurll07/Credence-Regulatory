@@ -2,7 +2,6 @@ import { supabase } from "../lib/supabase";
 import { testimonials } from "../data/testimonials";
 import ReviewsSlider from "./ReviewsSlider";
 import AnimatedBg from "./AnimatedBg";
-import SectionBg from "./SectionBg";
 
 async function getApproved() {
   try {
@@ -23,7 +22,7 @@ async function getApproved() {
   }
 }
 
-export default async function Testimonials({ bgImage }) {
+export default async function Testimonials() {
   const fromDb = await getApproved();
   const reviews = [...testimonials, ...fromDb];
 
@@ -31,7 +30,7 @@ export default async function Testimonials({ bgImage }) {
 
   return (
     <section className="relative overflow-hidden bg-cream">
-      {bgImage ? <SectionBg image={bgImage} /> : <AnimatedBg variant="light" />}
+      <AnimatedBg variant="light" />
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
         <ReviewsSlider reviews={reviews} />
       </div>

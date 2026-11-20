@@ -16,6 +16,9 @@ export async function generateMetadata({ params }) {
   return { title: `${s.title} | Credence Regulatory`, description: s.short };
 }
 
+// string ya { title, text } object, dono chalte hain
+const norm = (arr = []) => arr.map((x) => (typeof x === "string" ? { title: x } : x));
+
 const H2 = ({ children }) => (
   <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy md:text-4xl">{children}</h2>
 );
@@ -32,9 +35,41 @@ function Section({ title, children }) {
 function Cards({ items }) {
   return (
     <div className="grid gap-5 sm:grid-cols-2">
-      {items.map((it) => (
+      {norm(items).map((it) => (
         <div key={it.title} className="rounded-xl border border-gold/30 bg-white p-6 shadow-sm">
           <h3 className="text-xl font-bold text-navy">{it.title}</h3>
+          {it.text && <p className="mt-2 leading-relaxed text-gray-600">{it.text}</p>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Pros({ items }) {
+  return (
+    <div className="grid gap-5 sm:grid-cols-2">
+      {norm(items).map((it) => (
+        <div key={it.title} className="rounded-xl border border-green-200 bg-green-50/70 p-6">
+          <h3 className="flex gap-3 text-xl font-bold text-navy">
+            <span className="text-green-600">✔</span>
+            {it.title}
+          </h3>
+          {it.text && <p className="mt-2 leading-relaxed text-gray-600">{it.text}</p>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Cons({ items }) {
+  return (
+    <div className="grid gap-5 sm:grid-cols-2">
+      {norm(items).map((it) => (
+        <div key={it.title} className="rounded-xl border border-amber-200 bg-amber-50 p-6">
+          <h3 className="flex gap-3 text-xl font-bold text-navy">
+            <span className="text-amber-500">⚠</span>
+            {it.title}
+          </h3>
           {it.text && <p className="mt-2 leading-relaxed text-gray-600">{it.text}</p>}
         </div>
       ))}
@@ -128,6 +163,16 @@ export default async function ServiceDetail({ params }) {
           {s.documents?.length > 0 && (
             <Section title="Documents Required">
               <Checks items={s.documents} />
+              {s.documentTips?.length > 0 && (
+                <div className="mt-8 rounded-xl border-l-4 border-gold bg-cream p-6">
+                  <h3 className="text-xl font-bold text-navy">Tips for Your Documents</h3>
+                  <ul className="mt-3 space-y-2 text-lg text-gray-700">
+                    {s.documentTips.map((t) => (
+                      <li key={t} className="flex gap-3"><span className="text-gold">•</span>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <p className="mt-4 text-sm text-gray-500">The exact list depends on your case. We confirm it after a short consultation.</p>
             </Section>
           )}
@@ -137,6 +182,10 @@ export default async function ServiceDetail({ params }) {
               <div className="space-y-5">{s.importance.map((p) => <p key={p.slice(0, 40)} className={para}>{p}</p>)}</div>
             </Section>
           )}
+
+          {s.advantages?.length > 0 && <Section title="Advantages"><Pros items={s.advantages} /></Section>}
+
+          {s.disadvantages?.length > 0 && <Section title="Disadvantages & Limitations"><Cons items={s.disadvantages} /></Section>}
 
           {s.mistakes?.length > 0 && (
             <Section title="Common Mistakes to Avoid">
