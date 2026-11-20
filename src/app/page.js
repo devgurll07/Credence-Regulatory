@@ -10,7 +10,7 @@ import ReviewForm from "../components/ReviewForm";
 import HeroScene from "../components/HeroScene";
 import BgMedia from "../components/BgMedia";
 import { generalFaqs } from "../data/faqs";
-import BgMedia from "../../components/BgMedia";
+
 
 const ticker = [
   "Foreign Company Registration",
