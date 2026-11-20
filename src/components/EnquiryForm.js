@@ -35,7 +35,7 @@ export default function EnquiryForm({ defaultService = "" }) {
       <input name="phone" required placeholder="Phone / WhatsApp (with country code)" className={input} />
       <input name="country" required placeholder="Your Country" className={input} />
 
-      <select name="service" required className={input} defaultService="">
+      <select name="service" required className={input} defaultValue={defaultService}>
         <option value="" disabled>Select a Service</option>
         {allServices.map((s) => (
           <option key={s.slug} value={s.title}>{s.title}</option>

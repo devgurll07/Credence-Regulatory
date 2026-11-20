@@ -2,14 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
 import VideoBox from "../components/VideoBox";
-import { services } from "../data/services";
 import ServicesGrid from "../components/ServicesGrid";
 import Stats from "../components/Stats";
 import Testimonials from "../components/Testimonials";
 import FaqSection from "../components/FaqSection";
-import { generalFaqs } from "../data/faqs";
-import HeroVideo from "../components/HeroVideo";
 import ReviewForm from "../components/ReviewForm";
+import HeroScene from "../components/HeroScene";
+import BgMedia from "../components/BgMedia";
+import { generalFaqs } from "../data/faqs";
 
 const ticker = [
   "Foreign Company Registration",
@@ -30,15 +30,31 @@ const steps = [
 export default function Home() {
   return (
     <main>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy-light to-[#3b2a8f] text-white">
-        <HeroVideo src="/videos/hero.mp4" poster="/images/hero.jpg" alt="International business team" />
-        <div className="animate-float absolute -left-24 top-10 h-72 w-72 rounded-full bg-gold/30 blur-3xl" />
+      {/* HERO MOTION VIDEO */}
+      <HeroScene
+        image="/images/hero-globe.jpg"
+        width={1920}
+        height={1080}
+        motionVideo="/videos/hero-motion.mp4"
+      />
+
+      {/* TAKE YOUR BUSINESS ACROSS BORDERS (video background) */}
+      <section className="relative overflow-hidden bg-navy text-white">
+        <BgMedia
+          video="/videos/section-bg.mp4"
+          image="/images/section.jpeg"
+          alt="Global network background"
+          opacity={0.5}
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy-light/75 to-[#3b2a8f]/80" />
+
+        <div className="animate-float absolute -left-24 top-10 h-72 w-72 rounded-full bg-gold/25 blur-3xl" />
         <div className="animate-float absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
           <div className="animate-fade-up">
-            <p className="mb-4 inline-block rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-widest">
+            <p className="mb-4 inline-block rounded-full border border-white/30 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
               🌍 For Global Businesses
             </p>
             <h1 className="font-[family-name:var(--font-playfair)] text-4xl font-bold leading-tight md:text-6xl">
@@ -49,10 +65,16 @@ export default function Home() {
               trademark registration, handled end to end by experts.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/contact" className="rounded bg-gold px-7 py-3 font-semibold text-white shadow-lg transition hover:scale-105">
+              <Link
+                href="/contact"
+                className="rounded bg-gold px-7 py-3 font-semibold text-white shadow-lg transition hover:scale-105"
+              >
                 Talk to an Expert
               </Link>
-              <Link href="/services" className="rounded border border-white px-7 py-3 font-semibold transition hover:bg-white hover:text-navy">
+              <Link
+                href="/services"
+                className="rounded border border-white px-7 py-3 font-semibold transition hover:bg-white hover:text-navy"
+              >
                 Explore Services
               </Link>
             </div>
@@ -60,7 +82,13 @@ export default function Home() {
 
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/20">
-              <Image src="/images/hero.webp" alt="International business team" fill priority className="object-cover" />
+              <Image
+                src="/images/hero.webp"
+                alt="International business team"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
             </div>
             <div className="animate-float absolute -bottom-5 -left-5 rounded-lg bg-white px-4 py-3 text-sm font-semibold text-navy shadow-xl">
               ✅ Compliance-first approach
@@ -75,9 +103,8 @@ export default function Home() {
         </div>
       </section>
 
-       <Stats />
+      <Stats />
       <Testimonials />
-
 
       {/* TICKER */}
       <section className="overflow-hidden bg-navy py-4 text-sm text-gray-300">
@@ -87,7 +114,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <PopularServices />
+
       {/* SERVICES */}
       <ServicesGrid />
 
@@ -118,7 +145,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-<FaqSection faqs={generalFaqs} background="bg-white" aside={<ReviewForm />} />
+
+      <FaqSection faqs={generalFaqs} background="bg-white" aside={<ReviewForm />} />
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-navy to-navy-light text-white">

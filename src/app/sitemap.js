@@ -8,7 +8,12 @@ export default async function sitemap() {
     url: `${base}${p}`,
     lastModified: new Date(),
   }));
-  const svc = services.map((s) => ({ url: `${base}/services/${s.slug}`, lastModified: new Date() }));
+
+  // svc = saari services ke page addresses
+  const svc = allServices.map((s) => ({
+    url: `${base}/services/${s.slug}`,
+    lastModified: new Date(),
+  }));
 
   let posts = [];
   try {
