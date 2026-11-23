@@ -81,12 +81,9 @@ export default async function BlogPost({ params }) {
         </header>
 
         <div className="flex w-full flex-col gap-8 py-12 lg:flex-row lg:items-start lg:gap-10">
-          {/* Left: main services, flush to the left edge */}
+          {/* Left: main services */}
           <aside className="order-3 w-full px-4 lg:sticky lg:top-24 lg:order-1 lg:max-h-[calc(100vh-7rem)] lg:w-72 lg:shrink-0 lg:self-start lg:overflow-y-auto lg:pl-4 lg:pr-0 xl:w-80 xl:pl-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-           <div
-  className="rounded-2xl p-5 text-white shadow-xl ring-1 ring-white/10"
-  style={panelBgStyle}
->
+            <div className="rounded-2xl p-5 text-white shadow-xl ring-1 ring-white/10" style={panelBgStyle}>
               <h2 className="font-[family-name:var(--font-playfair)] text-lg font-bold">Our Services</h2>
               <div className="mt-2 h-0.5 w-10 rounded bg-gold" />
               <ul className="mt-4 space-y-1">
@@ -105,7 +102,7 @@ export default async function BlogPost({ params }) {
             </div>
           </aside>
 
-          {/* Middle: blog, fills all the space between the two cards */}
+          {/* Middle: blog */}
           <div className="order-1 w-full min-w-0 px-4 lg:order-2 lg:flex-1 lg:px-0">
             {post.cover_url && <img src={post.cover_url} alt={post.title} className="mb-10 w-full rounded-xl object-cover shadow" />}
             <BlogContent content={post.content} />
@@ -118,13 +115,13 @@ export default async function BlogPost({ params }) {
             </div>
           </div>
 
-          {/* Right: enquiry form, flush to the right edge */}
-         <aside
-          id="enquiry"
-          className="order-2 w-full scroll-mt-24 px-4 lg:sticky lg:top-24 lg:order-3 lg:max-h-[calc(100vh-7rem)] lg:w-[25rem] lg:shrink-0 lg:self-start lg:overflow-y-auto lg:pl-0 lg:pr-4 xl:w-[29rem] xl:pr-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          <EnquiryForm sourceBlogSlug={post.slug} />
-        </aside>
+          {/* Right: enquiry form */}
+          <aside
+            id="enquiry"
+            className="order-2 w-full scroll-mt-24 px-4 lg:sticky lg:top-24 lg:order-3 lg:max-h-[calc(100vh-7rem)] lg:w-[25rem] lg:shrink-0 lg:self-start lg:overflow-y-auto lg:pl-0 lg:pr-4 xl:w-[29rem] xl:pr-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            <EnquiryForm sourceBlogSlug={post.slug} />
+          </aside>
         </div>
       </article>
 

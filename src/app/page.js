@@ -32,14 +32,11 @@ const steps = [
 export default function Home() {
   return (
     <main>
-      {/* HERO MOTION VIDEO */}
-      <HeroScene
-       
-        width={1920}
+      <BgMedia image="/images/hero.png" 
+       width={1920}
         height={1080}
-        motionVideo="/videos/hero-motion.mp4"
-      />
-
+        alt="" />
+    
       {/* TAKE YOUR BUSINESS ACROSS BORDERS (video background) */}
       <section className="relative overflow-hidden bg-navy text-white">
         <BgMedia
