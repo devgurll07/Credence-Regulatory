@@ -34,7 +34,7 @@ export default function Home() {
     <main>
       {/* HERO MOTION VIDEO */}
       <HeroScene
-        image="/images/hero-globe.jpg"
+       
         width={1920}
         height={1080}
         motionVideo="/videos/hero-motion.mp4"
@@ -130,7 +130,7 @@ export default function Home() {
       <section className="bg-cream">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
           <Reveal>
-            <VideoBox title="How We Work" src="/videos/How_We_Work.mp4" poster="/images/how-we-work-poster.webp" />
+            <VideoBox title="How We Work" src="/videos/How_We_Work.mp4" />
           </Reveal>
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-widest text-gold">How We Work</p>
