@@ -13,7 +13,7 @@ function Field({ label, children }) {
   );
 }
 
-export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null }) {
+export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null, flushRight = false }) {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
   const cardRef = useRef(null);
 
@@ -74,7 +74,9 @@ export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null
         ref={cardRef}
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
-        className="relative overflow-hidden rounded-2xl border border-white/10 p-5 text-white"
+        className={`relative overflow-hidden border border-white/10 p-5 text-white ${
+          flushRight ? "rounded-2xl lg:rounded-r-none lg:pr-8" : "rounded-2xl"
+        }`}
         style={{
           ...panelBgStyle,
           transformStyle: "preserve-3d",

@@ -71,7 +71,7 @@ export default async function BlogPost({ params }) {
     <main>
       <article>
         <header className="bg-gradient-to-br from-navy to-navy-light text-white">
-        <div className="mx-auto max-w-[1600px] px-6 py-14">
+          <div className="mx-auto max-w-[1600px] px-6 py-14">
             {post.category && <p className="text-sm font-semibold uppercase tracking-widest text-gold">{post.category}</p>}
             <h1 className="mt-3 max-w-4xl font-[family-name:var(--font-playfair)] text-3xl font-bold md:text-5xl">{post.title}</h1>
             <p className="mt-4 text-sm text-gray-300">
@@ -80,10 +80,13 @@ export default async function BlogPost({ params }) {
           </div>
         </header>
 
-        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 lg:flex-row lg:items-start">
-          {/* Left: main services (sticky) */}
-         <aside className="order-3 w-full lg:sticky lg:top-24 lg:order-1 lg:max-h-[calc(100vh-7rem)] lg:w-72 xl:w-80 lg:shrink-0 lg:self-start lg:overflow-y-auto">
-            <div className="rounded-2xl p-5 text-white shadow-xl ring-1 ring-white/10" style={panelBgStyle}>
+        <div className="flex w-full flex-col gap-8 py-12 lg:flex-row lg:items-start lg:gap-10">
+          {/* Left: main services, flush to the left edge */}
+          <aside className="order-3 w-full px-4 lg:sticky lg:top-24 lg:order-1 lg:max-h-[calc(100vh-7rem)] lg:w-72 lg:shrink-0 lg:self-start lg:overflow-y-auto lg:px-0 xl:w-80 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div
+              className="rounded-2xl p-5 text-white shadow-xl ring-1 ring-white/10 lg:rounded-l-none lg:pl-8"
+              style={panelBgStyle}
+            >
               <h2 className="font-[family-name:var(--font-playfair)] text-lg font-bold">Our Services</h2>
               <div className="mt-2 h-0.5 w-10 rounded bg-gold" />
               <ul className="mt-4 space-y-1">
@@ -102,8 +105,8 @@ export default async function BlogPost({ params }) {
             </div>
           </aside>
 
-          {/* Middle: blog */}
-          <div className="order-1 w-full min-w-0 lg:order-2 lg:flex-1">
+          {/* Middle: blog, fills all the space between the two cards */}
+          <div className="order-1 w-full min-w-0 px-4 lg:order-2 lg:flex-1 lg:px-0">
             {post.cover_url && <img src={post.cover_url} alt={post.title} className="mb-10 w-full rounded-xl object-cover shadow" />}
             <BlogContent content={post.content} />
 
@@ -115,12 +118,12 @@ export default async function BlogPost({ params }) {
             </div>
           </div>
 
-          {/* Right: enquiry form (sticky) */}
+          {/* Right: enquiry form, flush to the right edge */}
           <aside
-  id="enquiry"
-  className="order-2 w-full scroll-mt-24 lg:sticky lg:top-24 lg:order-3 lg:max-h-[calc(100vh-7rem)] lg:w-[24rem] xl:w-[28rem] lg:shrink-0 lg:self-start lg:overflow-y-auto"
->
-            <EnquiryForm sourceBlogSlug={post.slug} />
+            id="enquiry"
+            className="order-2 w-full scroll-mt-24 px-4 lg:sticky lg:top-24 lg:order-3 lg:max-h-[calc(100vh-7rem)] lg:w-[24rem] lg:shrink-0 lg:self-start lg:overflow-y-auto lg:px-0 xl:w-[28rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            <EnquiryForm sourceBlogSlug={post.slug} flushRight />
           </aside>
         </div>
       </article>
