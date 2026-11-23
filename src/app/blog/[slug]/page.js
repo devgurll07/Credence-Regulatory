@@ -82,28 +82,25 @@ export default async function BlogPost({ params }) {
 
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 lg:flex-row lg:items-start">
           {/* Left: main services */}
-          <aside className="order-3 w-full lg:order-1 lg:w-60 lg:shrink-0">
-            <div
-              className="rounded-2xl p-5 text-white shadow-xl ring-1 ring-white/10 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto"
-              style={panelBgStyle}
-            >
-              <h2 className="font-[family-name:var(--font-playfair)] text-lg font-bold">Our Services</h2>
-              <div className="mt-2 h-0.5 w-10 rounded bg-gold" />
-              <ul className="mt-4 space-y-1">
-                {sidebarServices.map((s) => (
-                  <li key={s.slug}>
-                    <Link
-                      href={`/services/${s.slug}`}
-                      className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm text-gray-100 transition duration-150 hover:translate-x-1 hover:bg-white/10 hover:text-gold"
-                    >
-                      <span>{s.title}</span>
-                      <span className="opacity-0 transition group-hover:opacity-100">→</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
+<aside className="order-3 w-full lg:sticky lg:top-24 lg:order-1 lg:max-h-[calc(100vh-7rem)] lg:w-60 lg:shrink-0 lg:self-start lg:overflow-y-auto">
+  <div className="rounded-2xl p-5 text-white shadow-xl ring-1 ring-white/10" style={panelBgStyle}>
+    <h2 className="font-[family-name:var(--font-playfair)] text-lg font-bold">Our Services</h2>
+    <div className="mt-2 h-0.5 w-10 rounded bg-gold" />
+    <ul className="mt-4 space-y-1">
+      {sidebarServices.map((s) => (
+        <li key={s.slug}>
+          <Link
+            href={`/services/${s.slug}`}
+            className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm text-gray-100 transition duration-150 hover:translate-x-1 hover:bg-white/10 hover:text-gold"
+          >
+            <span>{s.title}</span>
+            <span className="opacity-0 transition group-hover:opacity-100">→</span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+</aside>
 
           {/* Middle: blog */}
           <div className="order-1 w-full min-w-0 lg:order-2 lg:flex-1">
