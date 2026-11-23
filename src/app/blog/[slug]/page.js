@@ -147,7 +147,6 @@ export default async function BlogPost({ params }) {
               </div>
             </div>
           </aside>
-        </div>
       </article>
 
       {related.length > 0 && (
