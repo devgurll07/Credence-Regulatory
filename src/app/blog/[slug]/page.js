@@ -71,7 +71,7 @@ export default async function BlogPost({ params }) {
     <main>
       <article>
         <header className="bg-gradient-to-br from-navy to-navy-light text-white">
-          <div className="mx-auto max-w-7xl px-6 py-14">
+        <div className="mx-auto max-w-[1600px] px-6 py-14">
             {post.category && <p className="text-sm font-semibold uppercase tracking-widest text-gold">{post.category}</p>}
             <h1 className="mt-3 max-w-4xl font-[family-name:var(--font-playfair)] text-3xl font-bold md:text-5xl">{post.title}</h1>
             <p className="mt-4 text-sm text-gray-300">
@@ -82,7 +82,7 @@ export default async function BlogPost({ params }) {
 
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 lg:flex-row lg:items-start">
           {/* Left: main services (sticky) */}
-          <aside className="order-3 w-full lg:sticky lg:top-24 lg:order-1 lg:max-h-[calc(100vh-7rem)] lg:w-60 lg:shrink-0 lg:self-start lg:overflow-y-auto">
+         <aside className="order-3 w-full lg:sticky lg:top-24 lg:order-1 lg:max-h-[calc(100vh-7rem)] lg:w-72 xl:w-80 lg:shrink-0 lg:self-start lg:overflow-y-auto">
             <div className="rounded-2xl p-5 text-white shadow-xl ring-1 ring-white/10" style={panelBgStyle}>
               <h2 className="font-[family-name:var(--font-playfair)] text-lg font-bold">Our Services</h2>
               <div className="mt-2 h-0.5 w-10 rounded bg-gold" />
@@ -117,9 +117,9 @@ export default async function BlogPost({ params }) {
 
           {/* Right: enquiry form (sticky) */}
           <aside
-            id="enquiry"
-            className="order-2 w-full scroll-mt-24 lg:sticky lg:top-24 lg:order-3 lg:max-h-[calc(100vh-7rem)] lg:w-[22rem] lg:shrink-0 lg:self-start lg:overflow-y-auto"
-          >
+  id="enquiry"
+  className="order-2 w-full scroll-mt-24 lg:sticky lg:top-24 lg:order-3 lg:max-h-[calc(100vh-7rem)] lg:w-[24rem] xl:w-[28rem] lg:shrink-0 lg:self-start lg:overflow-y-auto"
+>
             <EnquiryForm sourceBlogSlug={post.slug} />
           </aside>
         </div>
