@@ -4,6 +4,7 @@ import { supabase } from "../../../lib/supabase";
 import BlogContent from "../../../components/BlogContent";
 import EnquiryForm from "../../../components/EnquiryForm";
 import { allServices } from "../../../data/allServices";
+import { panelBgStyle } from "../../../data/panelBg";
 
 export const revalidate = 300;
 const site = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -82,13 +83,21 @@ export default async function BlogPost({ params }) {
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 lg:flex-row lg:items-start">
           {/* Left: main services */}
           <aside className="order-3 w-full lg:order-1 lg:w-60 lg:shrink-0">
-            <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5 lg:sticky lg:top-24 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
-              <h2 className="font-[family-name:var(--font-playfair)] text-lg font-bold text-navy">Our Services</h2>
+            <div
+              className="rounded-2xl p-5 text-white shadow-xl ring-1 ring-white/10 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto"
+              style={panelBgStyle}
+            >
+              <h2 className="font-[family-name:var(--font-playfair)] text-lg font-bold">Our Services</h2>
+              <div className="mt-2 h-0.5 w-10 rounded bg-gold" />
               <ul className="mt-4 space-y-1">
                 {sidebarServices.map((s) => (
                   <li key={s.slug}>
-                    <Link href={`/services/${s.slug}`} className="block rounded px-3 py-2 text-sm text-gray-700 hover:bg-cream hover:text-navy">
-                      {s.title}
+                    <Link
+                      href={`/services/${s.slug}`}
+                      className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm text-gray-100 transition duration-150 hover:translate-x-1 hover:bg-white/10 hover:text-gold"
+                    >
+                      <span>{s.title}</span>
+                      <span className="opacity-0 transition group-hover:opacity-100">→</span>
                     </Link>
                   </li>
                 ))}
@@ -111,7 +120,7 @@ export default async function BlogPost({ params }) {
 
           {/* Right: enquiry form */}
           <aside id="enquiry" className="order-2 w-full scroll-mt-24 lg:order-3 lg:w-[22rem] lg:shrink-0">
-            <div className="lg:sticky lg:top-24">
+            <div className="lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pb-2">
               <EnquiryForm sourceBlogSlug={post.slug} />
             </div>
           </aside>
@@ -134,7 +143,7 @@ export default async function BlogPost({ params }) {
         </section>
       )}
 
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
     </main>
   );
 }

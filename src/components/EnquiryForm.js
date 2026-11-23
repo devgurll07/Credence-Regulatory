@@ -2,6 +2,16 @@
 
 import { useRef, useState } from "react";
 import { allServices } from "../data/allServices";
+import { panelBgStyle } from "../data/panelBg";
+
+function Field({ label, children }) {
+  return (
+    <label className="block">
+      <span className="mb-1 block text-xs font-medium text-white/80">{label}</span>
+      {children}
+    </label>
+  );
+}
 
 export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null }) {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
@@ -14,7 +24,7 @@ export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null
     const x = (e.clientX - r.left) / r.width - 0.5;
     const y = (e.clientY - r.top) / r.height - 0.5;
     el.style.transition = "transform 0.1s ease-out";
-    el.style.transform = `rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
+    el.style.transform = `rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
     el.style.setProperty("--gx", `${(x + 0.5) * 100}%`);
     el.style.setProperty("--gy", `${(y + 0.5) * 100}%`);
   }
@@ -50,85 +60,87 @@ export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null
   }
 
   const input =
-    "w-full rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder-white/60 outline-none transition duration-200 focus:-translate-y-0.5 focus:border-gold focus:bg-white/15 focus:shadow-lg";
+    "w-full rounded-md border border-transparent bg-white px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 outline-none transition duration-200 focus:-translate-y-0.5 focus:border-gold focus:shadow-lg";
 
   return (
     <div style={{ perspective: "1000px" }}>
       <style>{`
         @keyframes enq-pop { 0% { transform: scale(.5); opacity: 0 } 70% { transform: scale(1.1) } 100% { transform: scale(1); opacity: 1 } }
-        @keyframes enq-float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
         .enq-pop { animation: enq-pop .5s ease-out both }
-        .enq-float { animation: enq-float 3s ease-in-out infinite }
-        @media (prefers-reduced-motion: reduce) { .enq-pop, .enq-float { animation: none } }
+        @media (prefers-reduced-motion: reduce) { .enq-pop { animation: none } }
       `}</style>
 
       <div
         ref={cardRef}
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
-        className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-navy to-navy-light p-6 text-white"
+        className="relative overflow-hidden rounded-2xl border border-white/10 p-5 text-white"
         style={{
+          ...panelBgStyle,
           transformStyle: "preserve-3d",
-          boxShadow: "0 25px 50px -12px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.04) inset",
+          boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)",
         }}
       >
         {/* Glow that follows the cursor */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: "radial-gradient(260px circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,0.14), transparent 70%)",
+            background: "radial-gradient(240px circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,0.12), transparent 70%)",
           }}
         />
-        {/* Decorative gold blob */}
-        <div className="enq-float pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold opacity-20 blur-2xl" />
 
         <div className="relative">
           {status === "success" ? (
-            <div className="py-10 text-center">
+            <div className="py-12 text-center">
               <div className="enq-pop mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold text-3xl text-navy">✓</div>
               <h3 className="mt-5 font-[family-name:var(--font-playfair)] text-2xl font-bold">Thank you!</h3>
               <p className="mt-2 text-sm text-gray-300">Our team will contact you shortly.</p>
-              <button
-                type="button"
-                onClick={() => setStatus("idle")}
-                className="mt-6 text-sm text-gold underline"
-              >
+              <button type="button" onClick={() => setStatus("idle")} className="mt-6 text-sm text-gold underline">
                 Send another enquiry
               </button>
             </div>
           ) : (
             <>
-              <h3 className="font-[family-name:var(--font-playfair)] text-2xl font-bold">Get a Free Consultation</h3>
-              <p className="mt-1 text-sm text-gray-300">Tell us what you need and our experts will get back to you.</p>
+              <h3 className="font-[family-name:var(--font-playfair)] text-xl font-bold">Get a Free Consultation</h3>
+              <div className="mt-2 h-0.5 w-10 rounded bg-gold" />
 
-              <form onSubmit={handleSubmit} className="mt-5 space-y-3">
-                <input name="name" required placeholder="Full Name" className={input} />
-                <input name="email" type="email" required placeholder="Email Address" className={input} />
-                <input name="phone" required placeholder="Phone / WhatsApp (with country code)" className={input} />
-                <input name="country" required placeholder="Your Country" className={input} />
-
-                <select name="service" required defaultValue={defaultService} className={input}>
-                  <option value="" disabled className="text-gray-900">Select a Service</option>
-                  {allServices.map((s) => (
-                    <option key={s.slug} value={s.title} className="text-gray-900">{s.title}</option>
-                  ))}
-                </select>
-
-                <textarea name="message" rows={3} placeholder="Tell us about your requirement" className={input} />
+              <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+                <Field label="Your Name">
+                  <input name="name" required placeholder="Name" className={input} />
+                </Field>
+                <Field label="Your Email">
+                  <input name="email" type="email" required placeholder="Email" className={input} />
+                </Field>
+                <Field label="Phone / WhatsApp">
+                  <input name="phone" required placeholder="With country code" className={input} />
+                </Field>
+                <Field label="Your Country">
+                  <input name="country" required placeholder="Country" className={input} />
+                </Field>
+                <Field label="Service Required">
+                  <select name="service" required defaultValue={defaultService} className={input}>
+                    <option value="" disabled>Select a Service</option>
+                    {allServices.map((s) => (
+                      <option key={s.slug} value={s.title}>{s.title}</option>
+                    ))}
+                  </select>
+                </Field>
+                <Field label="Your Enquiry">
+                  <textarea name="message" rows={3} placeholder="Your queries" className={input} />
+                </Field>
 
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full rounded-lg bg-gold px-6 py-3 font-semibold text-navy transition duration-150 hover:-translate-y-0.5 active:translate-y-1 disabled:opacity-60"
-                  style={{ boxShadow: "0 6px 0 rgba(0,0,0,0.3), 0 14px 24px rgba(0,0,0,0.3)" }}
+                  className="w-full rounded-md bg-gold px-6 py-3 font-semibold uppercase tracking-wide text-navy transition duration-150 hover:-translate-y-0.5 active:translate-y-1 disabled:opacity-60"
+                  style={{ boxShadow: "0 5px 0 rgba(0,0,0,0.35), 0 12px 20px rgba(0,0,0,0.3)" }}
                 >
-                  {status === "sending" ? "Sending..." : "Submit Enquiry →"}
+                  {status === "sending" ? "Sending..." : "Submit"}
                 </button>
 
                 {status === "error" && (
                   <p className="text-sm text-red-300">Something went wrong. Please try again or WhatsApp us.</p>
                 )}
-                <p className="text-center text-xs text-gray-400">Your details are kept confidential.</p>
               </form>
             </>
           )}
