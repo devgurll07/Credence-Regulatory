@@ -294,7 +294,7 @@ export default function EnquiriesTab({ authFetch, onDenied }) {
           </thead>
           <tbody>
             {shown.length === 0 && (
-              <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500">No enquiries found.</td></tr>
+              <tr><td colSpan={8} className="px-4 py-8 text-center text-gray-500">No enquiries found.</td></tr>
             )}
             {shown.map((e) => (
               <tr key={e.id} className="border-t align-top">
@@ -322,7 +322,7 @@ export default function EnquiriesTab({ authFetch, onDenied }) {
                     {team.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
                   </select>
                 </td>
-                <td className="px-4 py-3">
+                <td className="px-4 py-3 text-xs text-gray-600">{e.source_blog_slug ? `Blog: ${e.source_blog_slug}` : e.source_page || "-"}
                   <select
                     value={e.status}
                     onChange={(ev) => patch(e.id, { status: ev.target.value })}

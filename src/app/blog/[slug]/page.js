@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { supabase } from "../../../lib/supabase";
 import BlogContent from "../../../components/BlogContent";
+import BlogEnquiryForm from "../../../components/BlogEnquiryForm";
+
 
 export const revalidate = 300;
 const site = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -81,11 +83,13 @@ export default async function BlogPost({ params }) {
             <a className={share} target="_blank" rel="noopener noreferrer" href={`https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(post.title)}`}>X</a>
           </div>
 
-          <div className="mt-12 rounded-xl bg-navy p-8 text-center text-white">
-            <h2 className="font-[family-name:var(--font-playfair)] text-2xl font-bold">Need help with this?</h2>
-            <p className="mt-2 text-gray-300">Speak to our experts and get a clear plan for your case.</p>
-            <Link href="/contact" className="mt-5 inline-block rounded bg-gold px-6 py-3 font-semibold text-white">Talk to an Expert</Link>
+          <div id="enquiry" className="mt-12 scroll-mt-24 rounded-xl border border-gray-200 p-8">
+            <h2 className="font-[family-name:var(--font-playfair)] text-2xl font-bold text-navy">Need help with this?</h2>
+            <p className="mb-6 mt-2 text-gray-600">Share your details and our experts will get back to you with a clear plan for your case.</p>
+            <BlogEnquiryForm slug={post.slug} defaultService="" />
           </div>
+
+        
         </div>
       </article>
 

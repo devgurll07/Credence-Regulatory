@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { supabase } from "../../../lib/supabase";
 import { sendMail, esc, layout } from "../../../lib/mail";
+import { sendToBitrix } from "../../../lib/bitrix";
 
 export async function POST(request) {
   let data;
@@ -25,6 +26,8 @@ export async function POST(request) {
     country: String(data.country).slice(0, 100),
     service: String(data.service).slice(0, 200),
     message: data.message ? String(data.message).slice(0, 3000) : null,
+    source_page: data.source_page ? String(data.source_page).slice(0, 300) : null,
+    source_blog_slug: data.source_blog_slug ? String(data.source_blog_slug).slice(0, 200) : null,
   };
 
   const { count: earlier } = await supabase
@@ -58,12 +61,17 @@ export async function POST(request) {
     });
   }
 
+  const sourceText = row.source_blog_slug
+    ? `Blog: ${row.source_blog_slug}`
+    : row.source_page || "-";
+
   const details = `
     <p><b>Name:</b> ${esc(row.name)}</p>
     <p><b>Email:</b> ${esc(row.email)}</p>
     <p><b>Phone:</b> ${esc(row.phone)}</p>
     <p><b>Country:</b> ${esc(row.country)}</p>
     <p><b>Service:</b> ${esc(row.service)}</p>
+    <p><b>Source:</b> ${esc(sourceText)}</p>
     <p><b>Message:</b> ${esc(row.message) || "-"}</p>`;
 
   await Promise.allSettled([
@@ -90,6 +98,12 @@ export async function POST(request) {
         replyTo: row.email,
         html: layout(`<h2>A new enquiry is assigned to you</h2>${details}`),
       }),
+    (async () => {
+      const leadId = await sendToBitrix({ ...row, assignee_name: assignee?.name });
+      if (leadId) {
+        await supabase.from("enquiries").update({ bitrix_lead_id: leadId }).eq("id", saved.id);
+      }
+    })(),
   ]);
 
   return NextResponse.json({ success: true });

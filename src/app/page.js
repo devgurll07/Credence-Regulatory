@@ -37,7 +37,7 @@ export default function Home() {
         image="/images/hero-globe.jpg"
         width={1920}
         height={1080}
-        motionVideo="/vdeos/hero-motion.mp4"
+        motionVideo="/videos/hero-motion.mp4"
       />
 
       {/* TAKE YOUR BUSINESS ACROSS BORDERS (video background) */}

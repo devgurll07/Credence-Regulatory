@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { allServices } from "../data/allServices";
 
-export default function EnquiryForm({ defaultService = "" }) {
+export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null }) {
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   async function handleSubmit(e) {
@@ -16,12 +16,17 @@ export default function EnquiryForm({ defaultService = "" }) {
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          source_page: window.location.pathname,
+          source_blog_slug: sourceBlogSlug,
+        }),
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
       e.target.reset();
-    } catch {
+    } catch (err) {
+      console.error("Enquiry submit failed:", err);
       setStatus("error");
     }
   }

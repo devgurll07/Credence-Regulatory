@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabaseBrowser } from "../../lib/supabaseClient";
+import BlogAdmin from "../../components/BlogAdmin";
 
 const STATUSES = ["New", "In progress", "Closed"];
 const badge = {
@@ -344,8 +345,7 @@ export default function AdminDashboard() {
     );
   }
 
-  const tabs = [["overview", "Overview"], ["enquiries", "Enquiries"], ["reviews", "Reviews"]];
-
+  const tabs = [["overview", "Overview"], ["enquiries", "Enquiries"], ["blog", "Blog"], ["reviews", "Reviews"]];
   return (
     <main className="min-h-screen bg-cream">
       <header className="bg-navy text-white">
@@ -376,6 +376,7 @@ export default function AdminDashboard() {
         {tab === "overview" && <Overview authFetch={authFetch} onDenied={onDenied} />}
         {tab === "enquiries" && <Enquiries authFetch={authFetch} onDenied={onDenied} />}
         {tab === "reviews" && <Reviews authFetch={authFetch} onDenied={onDenied} />}
+        {tab === "blog" && <BlogAdmin authFetch={authFetch} onDenied={onDenied} />}
       </div>
     </main>
   );
