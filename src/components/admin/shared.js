@@ -42,7 +42,7 @@ export function Stat({ label, value, hint }) {
   return (
     <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
       <p className="text-sm text-gray-500">{label}</p>
-      <p className="mt-1 text-3xl font-bold text-navy">{value}</p>
+      <p className="mt-1 text-3xl font-bold text-ink">{value}</p>
       {hint && <p className="mt-1 text-xs text-gray-400">{hint}</p>}
     </div>
   );
@@ -52,7 +52,7 @@ export function BarList({ title, items }) {
   const max = Math.max(1, ...items.map((i) => i.value));
   return (
     <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-      <h3 className="font-bold text-navy">{title}</h3>
+      <h3 className="font-bold text-ink">{title}</h3>
       {items.length === 0 ? (
         <p className="mt-4 text-sm text-gray-500">No data yet.</p>
       ) : (
@@ -61,7 +61,7 @@ export function BarList({ title, items }) {
             <li key={i.label} className="text-sm">
               <div className="flex justify-between gap-3">
                 <span className="truncate text-gray-700">{i.label}</span>
-                <span className="font-semibold text-navy">{i.value}</span>
+                <span className="font-semibold text-ink">{i.value}</span>
               </div>
               <div className="mt-1 h-1.5 rounded bg-cream">
                 <div className="h-1.5 rounded bg-gold" style={{ width: `${(i.value / max) * 100}%` }} />

@@ -50,7 +50,7 @@ export default function OverviewTab({ authFetch, onDenied }) {
       </div>
 
       <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-        <h3 className="font-bold text-navy">Page views per day</h3>
+        <h3 className="font-bold text-ink">Page views per day</h3>
         <div className="mt-6 flex h-48 items-end gap-1">
           {data.daily.map((d) => (
             <div key={d.day} className="flex h-full flex-1 items-end" title={`${d.day}: ${d.views} views`}>

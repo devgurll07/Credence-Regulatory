@@ -30,7 +30,7 @@ function Card({ p, featured = false }) {
       )}
       <div className="flex flex-1 flex-col p-6">
         {p.category && <p className="text-xs font-semibold uppercase tracking-widest text-gold">{p.category}</p>}
-        <h2 className="mt-2 text-xl font-bold text-navy group-hover:text-gold">{p.title}</h2>
+        <h2 className="mt-2 text-xl font-bold text-ink group-hover:text-gold">{p.title}</h2>
         {p.excerpt && <p className="mt-3 flex-1 text-gray-600">{p.excerpt}</p>}
         <div className="mt-4 flex items-center justify-between text-sm">
           <span className="text-gray-400">
@@ -107,7 +107,7 @@ export default async function BlogPage({ searchParams }) {
 
         {featured.length > 0 && (
           <section className="mt-12">
-            <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy">Featured Articles</h2>
+            <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-ink">Featured Articles</h2>
             <div className="mt-6 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {featured.map((p) => <Card key={p.slug} p={p} featured />)}
             </div>
@@ -117,7 +117,7 @@ export default async function BlogPage({ searchParams }) {
         {rest.length > 0 && (
           <section className="mt-14">
             {!filtering && featured.length > 0 && (
-              <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy">Latest Articles</h2>
+              <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-ink">Latest Articles</h2>
             )}
             <div className="mt-6 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {rest.map((p) => <Card key={p.slug} p={p} />)}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import BgMedia from "./BgMedia";
 import { journey, trust } from "../data/stats";
 
 function Counter({ value, suffix }) {
@@ -42,16 +41,16 @@ function Group({ title, items, cols }) {
       <h2 className="text-center font-[family-name:var(--font-playfair)] text-2xl font-bold md:text-3xl">
         {title}
       </h2>
-      <div className={`mt-8 grid gap-6 text-center ${cols}`}>
+      <div className={`mt-6 grid gap-3 text-center sm:mt-8 sm:gap-6 ${cols}`}>
         {items.map((it) => (
           <div
             key={it.label}
-            className="rounded-xl border border-white/15 bg-navy/60 p-6 shadow-lg backdrop-blur-md transition hover:border-gold/50"
+            className="rounded-xl border border-white/20 bg-white/10 p-4 shadow-lg transition hover:bg-white/15 sm:p-6"
           >
-            <p className="text-4xl font-bold text-gold">
+            <p className="text-3xl font-bold sm:text-4xl">
               <Counter value={it.value} suffix={it.suffix} />
             </p>
-            <p className="mt-2 text-sm text-gray-200">{it.label}</p>
+            <p className="mt-2 text-xs text-white/85 sm:text-sm">{it.label}</p>
           </div>
         ))}
       </div>
@@ -61,19 +60,9 @@ function Group({ title, items, cols }) {
 
 export default function Stats() {
   return (
-    <section className="relative overflow-hidden bg-navy text-white">
-      {/* Background: video, image fallback ke saath */}
-      <BgMedia
-        video="/videos/journey-bg.mp4"
-        image="/images/journey.jpeg"
-        alt="Our Journey So Far background"
-        opacity={0.45}
-      />
-
-      {/* Text readable rakhne ke liye dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/65 to-navy/90" />
-
-      <div className="relative z-10 mx-auto max-w-7xl space-y-16 px-6 py-16">
+    <section className="relative overflow-hidden bg-gradient-to-br from-navy to-navy-light text-white">
+      <div aria-hidden="true" className="bg-dots pointer-events-none absolute inset-0 opacity-50" />
+      <div className="relative mx-auto max-w-7xl space-y-12 px-4 py-12 sm:px-6 md:space-y-16 md:py-16">
         <Group title="Our Journey So Far" items={journey} cols="sm:grid-cols-3" />
         <Group title="Trusted Compliance & Technology Partner" items={trust} cols="grid-cols-2 md:grid-cols-4" />
       </div>

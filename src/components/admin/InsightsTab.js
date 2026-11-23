@@ -43,11 +43,11 @@ export default function InsightsTab({ authFetch, onDenied }) {
       </div>
 
       <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-        <h3 className="font-bold text-navy">Enquiries per month</h3>
+        <h3 className="font-bold text-ink">Enquiries per month</h3>
         <div className="mt-6 flex h-48 items-end gap-3">
           {d.monthly.map((m) => (
             <div key={m.month} className="flex h-full flex-1 flex-col items-center justify-end">
-              <span className="mb-1 text-xs font-semibold text-navy">{m.count}</span>
+              <span className="mb-1 text-xs font-semibold text-ink">{m.count}</span>
               <div
                 className="w-full rounded-t bg-gold"
                 style={{ height: `${(m.count / max) * 80}%`, minHeight: m.count ? 4 : 1 }}

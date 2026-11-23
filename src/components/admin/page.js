@@ -64,7 +64,7 @@ export default function AdminDashboard() {
             <button
               key={key}
               onClick={() => setTab(key)}
-              className={`-mb-px whitespace-nowrap border-b-2 px-5 py-3 font-semibold ${tab === key ? "border-gold text-navy" : "border-transparent text-gray-500"}`}
+              className={`-mb-px whitespace-nowrap border-b-2 px-5 py-3 font-semibold ${tab === key ? "border-gold text-ink" : "border-transparent text-gray-500"}`}
             >
               {label}
             </button>

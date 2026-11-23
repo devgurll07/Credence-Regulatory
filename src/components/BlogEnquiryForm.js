@@ -39,7 +39,7 @@ export default function BlogEnquiryForm({ slug, defaultService = "" }) {
   if (status === "done") {
     return (
       <div className="rounded-xl bg-cream p-8 text-center">
-        <h3 className="text-xl font-bold text-navy">Thank you!</h3>
+        <h3 className="text-xl font-bold text-ink">Thank you!</h3>
         <p className="mt-2 text-gray-600">We have received your enquiry. Our team will contact you soon.</p>
       </div>
     );

@@ -44,7 +44,7 @@ function Stat({ label, value, hint }) {
   return (
     <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
       <p className="text-sm text-gray-500">{label}</p>
-      <p className="mt-1 text-3xl font-bold text-navy">{value}</p>
+      <p className="mt-1 text-3xl font-bold text-ink">{value}</p>
       {hint && <p className="mt-1 text-xs text-gray-400">{hint}</p>}
     </div>
   );
@@ -54,7 +54,7 @@ function BarList({ title, items }) {
   const max = Math.max(1, ...items.map((i) => i.value));
   return (
     <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-      <h3 className="font-bold text-navy">{title}</h3>
+      <h3 className="font-bold text-ink">{title}</h3>
       {items.length === 0 ? (
         <p className="mt-4 text-sm text-gray-500">No data yet.</p>
       ) : (
@@ -63,7 +63,7 @@ function BarList({ title, items }) {
             <li key={i.label} className="text-sm">
               <div className="flex justify-between gap-3">
                 <span className="truncate text-gray-700">{i.label}</span>
-                <span className="font-semibold text-navy">{i.value}</span>
+                <span className="font-semibold text-ink">{i.value}</span>
               </div>
               <div className="mt-1 h-1.5 rounded bg-cream">
                 <div className="h-1.5 rounded bg-gold" style={{ width: `${(i.value / max) * 100}%` }} />
@@ -123,7 +123,7 @@ function Overview({ authFetch, onDenied }) {
       </div>
 
       <div className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-        <h3 className="font-bold text-navy">Page views per day</h3>
+        <h3 className="font-bold text-ink">Page views per day</h3>
         <div className="mt-6 flex h-48 items-end gap-1">
           {data.daily.map((d) => (
             <div
@@ -205,7 +205,7 @@ function Enquiries({ authFetch, onDenied }) {
 
       <div className="mt-4 overflow-x-auto rounded-xl bg-white shadow-sm ring-1 ring-black/5">
         <table className="w-full text-left text-sm">
-          <thead className="bg-cream text-navy">
+          <thead className="bg-cream text-ink">
             <tr>
               {["Date", "Name", "Contact", "Country", "Service", "Message", "Status"].map((h) => (
                 <th key={h} className="px-4 py-3 font-semibold">{h}</th>
@@ -291,7 +291,7 @@ function Reviews({ authFetch, onDenied }) {
           <div key={r.id} className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="font-bold text-navy">
+                <p className="font-bold text-ink">
                   {r.name}
                   {r.country ? <span className="font-normal text-gray-500"> · {r.country}</span> : null}
                 </p>
@@ -366,7 +366,7 @@ export default function AdminDashboard() {
             <button
               key={key}
               onClick={() => setTab(key)}
-              className={`-mb-px border-b-2 px-5 py-3 font-semibold ${tab === key ? "border-gold text-navy" : "border-transparent text-gray-500"}`}
+              className={`-mb-px border-b-2 px-5 py-3 font-semibold ${tab === key ? "border-gold text-ink" : "border-transparent text-gray-500"}`}
             >
               {label}
             </button>

@@ -31,7 +31,7 @@ export default async function Testimonials() {
   return (
     <section className="relative overflow-hidden bg-cream">
       <AnimatedBg variant="light" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20">
         <ReviewsSlider reviews={reviews} />
       </div>
     </section>

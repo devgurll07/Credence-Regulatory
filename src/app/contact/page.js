@@ -12,7 +12,7 @@ export default function ContactPage() {
     <main className="bg-cream">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2">
         <div>
-          <h1 className="font-[family-name:var(--font-playfair)] text-4xl font-bold text-navy">
+          <h1 className="font-[family-name:var(--font-playfair)] text-4xl font-bold text-ink">
             Let's Talk About Your Business
           </h1>
           <p className="mt-4 text-gray-600">

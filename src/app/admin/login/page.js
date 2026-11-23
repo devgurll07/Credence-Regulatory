@@ -25,7 +25,7 @@ export default function AdminLogin() {
   return (
     <main className="flex min-h-[70vh] items-center justify-center bg-cream px-6 py-16">
       <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4 rounded-xl bg-white p-8 shadow-lg">
-        <h1 className="text-center font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy">
+        <h1 className="text-center font-[family-name:var(--font-playfair)] text-3xl font-bold text-ink">
           Admin Login
         </h1>
         <input name="email" type="email" required placeholder="Email" className={input} />

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
 import VideoBox from "../components/VideoBox";
@@ -7,11 +6,10 @@ import Stats from "../components/Stats";
 import Testimonials from "../components/Testimonials";
 import FaqSection from "../components/FaqSection";
 import ReviewForm from "../components/ReviewForm";
-import HeroScene from "../components/HeroScene";
-import BgMedia from "../components/BgMedia";
+import Hero from "../components/Hero";
 import { generalFaqs } from "../data/faqs";
-import AnimatedBg from "../components/AnimatedBg";
 
+export const revalidate = 300;
 
 const ticker = [
   "Foreign Company Registration",
@@ -32,81 +30,12 @@ const steps = [
 export default function Home() {
   return (
     <main>
-      <BgMedia image="/images/hero.png" 
-       width={1920}
-        height={1080}
-        alt="" />
-    
-      {/* TAKE YOUR BUSINESS ACROSS BORDERS (video background) */}
-      <section className="relative overflow-hidden bg-navy text-white">
-        <BgMedia
-          video="/videos/section-bg.mp4"
-          image="/images/section.jpeg"
-          alt="Global network background"
-          opacity={0.5}
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy-light/75 to-[#3b2a8f]/80" />
-
-        <div className="animate-float absolute -left-24 top-10 h-72 w-72 rounded-full bg-gold/25 blur-3xl" />
-        <div className="animate-float absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
-
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
-          <div className="animate-fade-up">
-            <p className="mb-4 inline-block rounded-full border border-white/30 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
-              🌍 For Global Businesses
-            </p>
-            <h1 className="font-[family-name:var(--font-playfair)] text-4xl font-bold leading-tight md:text-6xl">
-              Take Your Business Across Borders with Confidence
-            </h1>
-            <p className="mt-6 text-lg text-gray-200">
-              Foreign company registration, document attestation and international
-              trademark registration, handled end to end by experts.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="rounded bg-gold px-7 py-3 font-semibold text-white shadow-lg transition hover:scale-105"
-              >
-                Talk to an Expert
-              </Link>
-              <Link
-                href="/services"
-                className="rounded border border-white px-7 py-3 font-semibold transition hover:bg-white hover:text-navy"
-              >
-                Explore Services
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/20">
-              <Image
-                src="/images/hero.webp"
-                alt="International business team"
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="animate-float absolute -bottom-5 -left-5 rounded-lg bg-white px-4 py-3 text-sm font-semibold text-navy shadow-xl">
-              ✅ Compliance-first approach
-            </div>
-            <div
-              className="animate-float absolute -right-4 -top-4 rounded-lg bg-white px-4 py-3 text-sm font-semibold text-navy shadow-xl"
-              style={{ animationDelay: "1.5s" }}
-            >
-              🌐 Cross-border expertise
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Hero />
       <Stats />
       <Testimonials />
 
       {/* TICKER */}
-      <section className="overflow-hidden bg-navy py-4 text-sm text-gray-300">
+      <section className="overflow-hidden bg-gradient-to-r from-navy to-navy-light py-4 text-sm text-white/90">
         <div className="animate-marquee flex w-max gap-12 whitespace-nowrap">
           {[...ticker, ...ticker].map((t, i) => (
             <span key={i}>◆ {t}</span>
@@ -115,34 +44,34 @@ export default function Home() {
       </section>
 
       {/* SERVICES */}
-      {/* SERVICES */}
-<div className="relative overflow-hidden bg-white">
-  <AnimatedBg variant="light" />
-  <div className="relative z-10">
-    <ServicesGrid />
-  </div>
-</div>
+      <div className="bg-white">
+        <ServicesGrid />
+      </div>
 
       {/* HOW WE WORK */}
       <section className="bg-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 md:gap-12 md:py-20">
           <Reveal>
-            <VideoBox title="How We Work" src="/videos/How_We_Work.mp4" />
+            <VideoBox
+              title="How We Work"
+              src="/videos/How_We_Work.mp4"
+              poster="/images/how-we-work-poster.webp"
+            />
           </Reveal>
           <Reveal>
             <p className="text-sm font-semibold uppercase tracking-widest text-gold">How We Work</p>
-            <h2 className="mt-2 font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy">
+            <h2 className="mt-2 font-[family-name:var(--font-playfair)] text-2xl font-bold text-ink sm:text-3xl">
               A Simple, Transparent Process
             </h2>
-            <ol className="mt-8 space-y-5">
+            <ol className="mt-6 space-y-5 md:mt-8">
               {steps.map((st, i) => (
                 <li key={st.title} className="flex gap-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold font-bold text-white">
                     {i + 1}
                   </span>
                   <div>
-                    <p className="font-semibold text-navy">{st.title}</p>
-                    <p className="text-sm text-gray-600">{st.text}</p>
+                    <p className="font-semibold text-ink">{st.title}</p>
+                    <p className="text-sm text-[#2a2850]">{st.text}</p>
                   </div>
                 </li>
               ))}
@@ -155,12 +84,15 @@ export default function Home() {
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-navy to-navy-light text-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center">
-          <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold md:text-4xl">
+        <div className="mx-auto max-w-4xl px-4 py-12 text-center sm:px-6 md:py-16">
+          <h2 className="font-[family-name:var(--font-playfair)] text-2xl font-bold sm:text-3xl md:text-4xl">
             Planning to Expand to a New Country?
           </h2>
-          <p className="mt-3 text-gray-300">Speak to our experts and get a clear plan for your requirement.</p>
-          <Link href="/contact" className="mt-8 inline-block rounded bg-gold px-8 py-3 font-semibold text-white hover:opacity-90">
+          <p className="mt-3 text-white/85">Speak to our experts and get a clear plan for your requirement.</p>
+          <Link
+            href="/contact"
+            className="mt-8 inline-block rounded-full bg-white px-8 py-3 font-semibold text-ink shadow-lg transition hover:-translate-y-0.5"
+          >
             Talk to an Expert
           </Link>
         </div>

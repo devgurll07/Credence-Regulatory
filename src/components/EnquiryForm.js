@@ -94,7 +94,7 @@ export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null
         <div className="relative">
           {status === "success" ? (
             <div className="py-12 text-center">
-              <div className="enq-pop mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold text-3xl text-navy">✓</div>
+              <div className="enq-pop mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold text-3xl text-ink">✓</div>
               <h3 className="mt-5 font-[family-name:var(--font-playfair)] text-2xl font-bold">Thank you!</h3>
               <p className="mt-2 text-sm text-gray-300">Our team will contact you shortly.</p>
               <button type="button" onClick={() => setStatus("idle")} className="mt-6 text-sm text-gold underline">
@@ -134,7 +134,7 @@ export default function EnquiryForm({ defaultService = "", sourceBlogSlug = null
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full rounded-md bg-gold px-6 py-3 font-semibold uppercase tracking-wide text-navy transition duration-150 hover:-translate-y-0.5 active:translate-y-1 disabled:opacity-60"
+                  className="w-full rounded-md bg-gold px-6 py-3 font-semibold uppercase tracking-wide text-ink transition duration-150 hover:-translate-y-0.5 active:translate-y-1 disabled:opacity-60"
                   style={{ boxShadow: "0 5px 0 rgba(0,0,0,0.35), 0 12px 20px rgba(0,0,0,0.3)" }}
                 >
                   {status === "sending" ? "Sending..." : "Submit"}

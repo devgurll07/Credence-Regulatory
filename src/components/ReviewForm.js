@@ -32,7 +32,7 @@ export default function ReviewForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-xl space-y-4 rounded-xl bg-white p-6 shadow-md ring-1 ring-black/5">
-      <h3 className="text-center font-[family-name:var(--font-playfair)] text-2xl font-bold text-navy">
+      <h3 className="text-center font-[family-name:var(--font-playfair)] text-2xl font-bold text-ink">
         Share Your Experience
       </h3>
 

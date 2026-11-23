@@ -10,7 +10,7 @@ export default function ReviewCard({ r }) {
         {r.rating && <Stars rating={r.rating} className="text-xl" />}
       </div>
 
-      {r.title && <p className="mt-2 text-lg font-bold text-navy">{r.title}</p>}
+      {r.title && <p className="mt-2 text-lg font-bold text-ink">{r.title}</p>}
       <blockquote className="mt-2 flex-1 leading-relaxed text-gray-600">{r.quote}</blockquote>
 
       <figcaption className="mt-6 flex items-center gap-4">
@@ -22,7 +22,7 @@ export default function ReviewCard({ r }) {
           </span>
         )}
         <span>
-          <span className="block text-lg font-bold text-navy">{r.name}</span>
+          <span className="block text-lg font-bold text-ink">{r.name}</span>
           {sub && <span className="block text-xs text-gray-500">{sub}</span>}
         </span>
       </figcaption>

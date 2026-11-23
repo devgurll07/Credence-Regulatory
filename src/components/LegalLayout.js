@@ -10,7 +10,7 @@ export default function LegalLayout({ title, updated, sections }) {
       <div className="mx-auto max-w-4xl space-y-8 px-6 py-14">
         {sections.map((s) => (
           <section key={s.title}>
-            <h2 className="text-xl font-bold text-navy">{s.title}</h2>
+            <h2 className="text-xl font-bold text-ink">{s.title}</h2>
             <p className="mt-3 leading-relaxed text-gray-600">{s.text}</p>
           </section>
         ))}

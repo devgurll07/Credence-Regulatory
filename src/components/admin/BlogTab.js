@@ -81,7 +81,7 @@ export default function BlogTab({ authFetch, onDenied }) {
         <button onClick={startNew} className="rounded bg-gold px-5 py-2 font-semibold text-white">+ New post</button>
         <div className="mt-6 overflow-x-auto rounded-xl bg-white shadow-sm ring-1 ring-black/5">
           <table className="w-full text-left text-sm">
-            <thead className="bg-cream text-navy">
+            <thead className="bg-cream text-ink">
               <tr>{["Title", "Category", "Status", "Updated", ""].map((h) => <th key={h} className="px-4 py-3 font-semibold">{h}</th>)}</tr>
             </thead>
             <tbody>
@@ -98,7 +98,7 @@ export default function BlogTab({ authFetch, onDenied }) {
                   <td className="px-4 py-3">{new Date(p.updated_at).toLocaleDateString("en-GB")}</td>
                   <td className="space-x-3 whitespace-nowrap px-4 py-3">
                     <button onClick={() => edit(p.id)} className="font-semibold text-gold">Edit</button>
-                    {p.published && <a href={`/blog/${p.slug}`} target="_blank" className="text-navy">View</a>}
+                    {p.published && <a href={`/blog/${p.slug}`} target="_blank" className="text-ink">View</a>}
                     <button onClick={() => remove(p.id)} className="text-red-600">Delete</button>
                   </td>
                 </tr>
@@ -113,7 +113,7 @@ export default function BlogTab({ authFetch, onDenied }) {
   return (
     <form onSubmit={save} className="space-y-4 rounded-xl bg-white p-6 shadow-sm ring-1 ring-black/5">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-bold text-navy">{id ? "Edit post" : "New post"}</h3>
+        <h3 className="text-xl font-bold text-ink">{id ? "Edit post" : "New post"}</h3>
         <button type="button" onClick={() => setForm(null)} className="text-sm underline">Back to list</button>
       </div>
 
@@ -138,7 +138,7 @@ export default function BlogTab({ authFetch, onDenied }) {
         <code>**bold**</code>, <code>[text](https://link)</code>. Related services: {services.map((s) => s.title).join(", ")}.
       </p>
 
-      <label className="flex items-center gap-2 text-sm font-semibold text-navy">
+      <label className="flex items-center gap-2 text-sm font-semibold text-ink">
         <input type="checkbox" checked={form.published} onChange={(e) => setForm({ ...form, published: e.target.checked })} />
         Published (visible on the website)
       </label>

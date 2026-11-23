@@ -101,7 +101,7 @@ export default function AboutPage() {
         href="https://wa.me/918800672422"
         target="_blank"
         rel="noopener noreferrer"
-        className="rounded border border-white px-8 py-3 font-semibold transition hover:bg-white hover:text-navy"
+        className="rounded border border-white px-8 py-3 font-semibold transition hover:bg-white hover:text-ink"
       >
         Chat on WhatsApp
       </a>

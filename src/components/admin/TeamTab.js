@@ -57,7 +57,7 @@ export default function TeamTab({ authFetch, onDenied }) {
   return (
     <div className="grid gap-8 lg:grid-cols-3">
       <form onSubmit={add} className="space-y-3 rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5 lg:col-span-1">
-        <h3 className="font-bold text-navy">Add service holder</h3>
+        <h3 className="font-bold text-ink">Add service holder</h3>
         <input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className={input} />
         <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className={input} />
         <p className="text-xs font-semibold text-gray-500">Services handled</p>
@@ -82,7 +82,7 @@ export default function TeamTab({ authFetch, onDenied }) {
           <div key={m.id} className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="font-bold text-navy">{m.name}</p>
+                <p className="font-bold text-ink">{m.name}</p>
                 <p className="text-sm text-gray-500">{m.email}</p>
               </div>
               <div className="flex gap-2">

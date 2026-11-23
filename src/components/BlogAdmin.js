@@ -144,7 +144,7 @@ function Editor({ authFetch, id, onClose }) {
       </div>
 
       <div className="rounded-xl bg-white p-4 ring-1 ring-black/5">
-        <p className="text-sm font-semibold text-navy">Cover image</p>
+        <p className="text-sm font-semibold text-ink">Cover image</p>
         {form.cover_url && <img src={form.cover_url} alt="" className="mt-3 max-h-48 rounded" />}
         <div className="mt-3 flex items-center gap-3">
           <input type="file" accept="image/*" onChange={(e) => pickImage(e, "cover")} className="text-sm" />
@@ -234,7 +234,7 @@ export default function BlogAdmin({ authFetch, onDenied }) {
 
       <div className="mt-4 overflow-x-auto rounded-xl bg-white shadow-sm ring-1 ring-black/5">
         <table className="w-full text-left text-sm">
-          <thead className="bg-cream text-navy">
+          <thead className="bg-cream text-ink">
             <tr>
               {["Title", "Category", "Status", "Views", "Enquiries", "Updated", ""].map((h) => (
                 <th key={h} className="px-4 py-3 font-semibold">{h}</th>

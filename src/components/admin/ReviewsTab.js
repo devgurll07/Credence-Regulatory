@@ -76,7 +76,7 @@ export default function ReviewsTab({ authFetch, onDenied }) {
           <div key={r.id} className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="font-bold text-navy">
+                <p className="font-bold text-ink">
                   {r.name}
                   {r.country ? <span className="font-normal text-gray-500"> · {r.country}</span> : null}
                 </p>

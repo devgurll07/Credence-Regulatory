@@ -98,7 +98,7 @@ export default function HeroScene({
                 <source src={screenVideo} type="video/mp4" />
               </video>
               <span className="absolute inset-0 flex items-center justify-center bg-black/20 transition group-hover:bg-black/40">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-xs text-navy lg:h-10 lg:w-10 lg:text-sm">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-xs text-ink lg:h-10 lg:w-10 lg:text-sm">
                   ▶
                 </span>
               </span>

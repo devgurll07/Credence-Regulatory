@@ -26,7 +26,7 @@ export default function ServicesPage() {
             <div className="h-full rounded-xl border border-gold/30 bg-white p-6 shadow-sm">
               <div className="flex items-center gap-4">
                 <span className="text-gold"><ServiceIcon name={s.icon} /></span>
-                <h2 className="text-xl font-semibold text-navy">{s.title}</h2>
+                <h2 className="text-xl font-semibold text-ink">{s.title}</h2>
               </div>
               <p className="mt-4 text-sm text-gray-600">{s.overview}</p>
               <Link href={`/services/${s.slug}`} className="mt-5 inline-block font-semibold text-gold">

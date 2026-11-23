@@ -54,10 +54,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      <header className="animate-fade-up sticky top-0 z-40 bg-white text-navy shadow-sm">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
+      <header className="sticky top-0 z-40 bg-white text-ink shadow-sm">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
           <Link href="/" onClick={close} className="py-3">
-            <Image src="/logo.png" alt="Credence Regulatory" width={180} height={48} priority className="h-12 w-auto" />
+           <Image src="/logo.png" alt="Credence Regulatory" width={180} height={48} priority className="h-auto w-36 sm:w-44" />
           </Link>
 
           {/* Desktop mega menu */}

@@ -21,12 +21,12 @@ export default function AuthCard({ mode }) {
   }
 
   const btn =
-    "flex w-full items-center justify-center gap-3 rounded border border-gray-300 bg-white px-4 py-3 font-medium text-navy transition hover:bg-gray-50";
+    "flex w-full items-center justify-center gap-3 rounded border border-gray-300 bg-white px-4 py-3 font-medium text-ink transition hover:bg-gray-50";
 
   return (
     <main className="flex min-h-[70vh] items-center justify-center bg-cream px-6 py-16">
       <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-lg">
-        <h1 className="text-center font-[family-name:var(--font-playfair)] text-3xl font-bold text-navy">
+        <h1 className="text-center font-[family-name:var(--font-playfair)] text-3xl font-bold text-ink">
           {isSignup ? "Create your account" : "Welcome back"}
         </h1>
         <p className="mt-2 text-center text-sm text-gray-600">

@@ -57,7 +57,7 @@ function Detail({ enquiry, all, team, authFetch, patch, onClose, onDelete }) {
       <div className="h-full w-full max-w-xl overflow-y-auto bg-white p-6 shadow-xl" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-navy">{enquiry.name}</h2>
+            <h2 className="text-2xl font-bold text-ink">{enquiry.name}</h2>
             <p className="text-sm text-gray-500">
               {enquiry.service} · {enquiry.country} · {new Date(enquiry.created_at).toLocaleString("en-GB")}
             </p>
@@ -117,7 +117,7 @@ function Detail({ enquiry, all, team, authFetch, patch, onClose, onDelete }) {
         )}
 
         <div className="mt-6">
-          <h3 className="font-bold text-navy">Send an update to the client (email)</h3>
+          <h3 className="font-bold text-ink">Send an update to the client (email)</h3>
           <textarea value={update} onChange={(e) => setUpdate(e.target.value)} rows={3} maxLength={2000}
             placeholder="e.g. Your documents are verified. We will file the application tomorrow." className={`${field} mt-2`} />
           <button
@@ -130,13 +130,13 @@ function Detail({ enquiry, all, team, authFetch, patch, onClose, onDelete }) {
         </div>
 
         <div className="mt-6">
-          <h3 className="font-bold text-navy">Internal note (team only)</h3>
+          <h3 className="font-bold text-ink">Internal note (team only)</h3>
           <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={2} maxLength={2000}
             placeholder="Call details, documents received, next step..." className={`${field} mt-2`} />
           <button
             disabled={!note.trim()}
             onClick={() => post("note", note, setNote)}
-            className="mt-2 rounded border border-navy px-4 py-2 text-sm font-semibold text-navy disabled:opacity-50"
+            className="mt-2 rounded border border-navy px-4 py-2 text-sm font-semibold text-ink disabled:opacity-50"
           >
             Add note
           </button>
@@ -144,7 +144,7 @@ function Detail({ enquiry, all, team, authFetch, patch, onClose, onDelete }) {
         {msg && <p className="mt-3 text-sm text-gray-600">{msg}</p>}
 
         <div className="mt-8">
-          <h3 className="font-bold text-navy">Timeline</h3>
+          <h3 className="font-bold text-ink">Timeline</h3>
           <ul className="mt-3 space-y-3 border-l-2 border-gold/40 pl-4">
             {history.length === 0 && <li className="text-sm text-gray-500">No activity yet.</li>}
             {history.map((h) => (
@@ -285,7 +285,7 @@ export default function EnquiriesTab({ authFetch, onDenied }) {
 
       <div className="mt-3 overflow-x-auto rounded-xl bg-white shadow-sm ring-1 ring-black/5">
         <table className="w-full text-left text-sm">
-          <thead className="bg-cream text-navy">
+          <thead className="bg-cream text-ink">
             <tr>
               {["Date", "Client", "Service", "Assigned to", "Status", "Follow-up", ""].map((h) => (
                 <th key={h} className="px-4 py-3 font-semibold">{h}</th>
