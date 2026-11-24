@@ -1,3 +1,8 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
 const pill =
   "flex h-11 w-11 items-center justify-center gap-2 rounded-full font-semibold text-white shadow-lg transition hover:scale-105 sm:h-auto sm:w-auto sm:px-5 sm:py-3";
 
@@ -13,8 +18,25 @@ const icon = {
 };
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+  const [hidden, setHidden] = useState(false);
+
+  // Hide the floating buttons while an enquiry form (#enquiry) is on screen
+  useEffect(() => {
+    setHidden(false);
+    const target = document.getElementById("enquiry");
+    if (!target) return;
+    const obs = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting), { threshold: 0.05 });
+    obs.observe(target);
+    return () => obs.disconnect();
+  }, [pathname]);
+
   return (
-    <div className="fixed bottom-4 right-3 z-50 flex flex-col items-end gap-2 sm:bottom-5 sm:right-5 sm:gap-3">
+    <div
+      className={`fixed bottom-4 right-3 z-50 flex flex-col items-end gap-2 transition duration-300 sm:bottom-5 sm:right-5 sm:gap-3 ${
+        hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
+      }`}
+    >
       <a
         href="tel:+917042032325"
         aria-label="Call us at +91 7042032325"

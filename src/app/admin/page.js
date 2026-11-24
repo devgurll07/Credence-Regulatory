@@ -221,7 +221,7 @@ function Enquiries({ authFetch, onDenied }) {
                 <td className="whitespace-nowrap px-4 py-3">{new Date(e.created_at).toLocaleDateString("en-GB")}</td>
                 <td className="px-4 py-3 font-medium">{e.name}</td>
                 <td className="px-4 py-3">
-                  <a href={`mailto:${e.email}`} className="block text-gold">{e.email}</a>
+                  {e.email && <a href={`mailto:${e.email}`} className="block text-gold">{e.email}</a>}
                   <a href={`https://wa.me/${e.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="block">{e.phone}</a>
                 </td>
                 <td className="px-4 py-3">{e.country}</td>

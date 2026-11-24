@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { allServices } from "../data/allServices";
@@ -82,6 +83,20 @@ const bar = [
   { icon: ShipIcon, label: "Import & Export", href: serviceLink("import") },
 ];
 
+// Splits text into words; each word slides in from the left with a small delay.
+function Words({ text, start = 0, className = "" }) {
+  return text.split(" ").map((w, i) => (
+    <Fragment key={`${start}-${i}`}>
+      <span
+        className={`word-in inline-block ${className}`}
+        style={{ animationDelay: `${(start + i) * 0.12}s` }}
+      >
+        {w}
+      </span>{" "}
+    </Fragment>
+  ));
+}
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#faf9ff] via-[#f1f0ff] to-[#e6e9ff]">
@@ -111,11 +126,16 @@ export default function Hero() {
           </div>
 
           <h1 className="mt-6 font-[family-name:var(--font-playfair)] text-4xl font-bold leading-[1.1] text-[#0d0b3e] sm:text-5xl md:text-6xl xl:text-7xl">
-            Navigate <span className="text-[#6c47ff]">Global Business</span> With{" "}
-            <span className="text-[#6c47ff]">Confidence.</span>
+            <Words text="Navigate" start={0} />
+            <Words text="Global Business" start={1} className="text-[#6c47ff]" />
+            <Words text="With" start={3} />
+            <Words text="Confidence." start={4} className="text-[#6c47ff]" />
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-[#2a2850] sm:text-lg">
+          <p
+            className="animate-fade-up mt-5 max-w-xl text-base leading-relaxed text-[#2a2850] sm:text-lg"
+            style={{ animationDelay: "0.7s" }}
+          >
             From <b className="text-[#0d0b3e]">company setup</b> and international IP protection to{" "}
             <b className="text-[#0d0b3e]">regulatory compliance</b> and cross-border expansion, we help you move
             forward with clarity.
@@ -123,7 +143,7 @@ export default function Hero() {
         </div>
 
         {/* Globe: sits between the paragraph and the buttons on mobile, on the right on desktop */}
-        <div className="my-2 flex justify-center lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:my-0 lg:justify-end lg:self-center">
+        <div className="slide-in-right my-2 flex justify-center lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:my-0 lg:justify-end lg:self-center">
           <Image
             src="/images/hero-globe-large.webp"
             alt="Global business network"
@@ -137,7 +157,10 @@ export default function Hero() {
 
         {/* Bottom content: buttons and trust row */}
         <div className="lg:col-start-1 lg:row-start-2 lg:self-start">
-          <div className="mt-4 flex flex-wrap gap-3 sm:gap-4 lg:mt-8">
+          <div
+            className="animate-fade-up mt-4 flex flex-wrap gap-3 sm:gap-4 lg:mt-8"
+            style={{ animationDelay: "0.9s" }}
+          >
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-[#6c47ff] px-6 py-3 font-semibold text-white shadow-[0_10px_25px_-8px_rgba(108,71,255,0.7)] transition hover:-translate-y-0.5 hover:bg-[#5a38e6] sm:px-8 sm:py-4"
@@ -152,7 +175,10 @@ export default function Hero() {
             </Link>
           </div>
 
-          <ul className="mt-8 grid grid-cols-1 gap-4 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6">
+          <ul
+            className="animate-fade-up mt-8 grid grid-cols-1 gap-4 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6"
+            style={{ animationDelay: "1.1s" }}
+          >
             {trust.map((t, i) => (
               <li key={t.text} className="flex items-center gap-6">
                 {i > 0 && <span className="hidden h-10 w-px bg-[#6c47ff]/20 sm:block" />}

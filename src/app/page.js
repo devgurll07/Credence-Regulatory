@@ -8,6 +8,7 @@ import FaqSection from "../components/FaqSection";
 import ReviewForm from "../components/ReviewForm";
 import Hero from "../components/Hero";
 import { generalFaqs } from "../data/faqs";
+import ClientLogos from "../components/ClientLogos";
 
 export const revalidate = 300;
 
@@ -32,6 +33,7 @@ export default function Home() {
     <main>
       <Hero />
       <Stats />
+      <ClientLogos />
       <Testimonials />
 
       {/* TICKER */}
@@ -55,7 +57,6 @@ export default function Home() {
             <VideoBox
               title="How We Work"
               src="/videos/How_We_Work.mp4"
-              poster="/images/how-we-work-poster.webp"
             />
           </Reveal>
           <Reveal>

@@ -56,3 +56,45 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up, .animate-float, .animate-marquee { animation: none; }
 }
+
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.logo-scroll { animation: logoScroll 45s linear infinite; }
+.logo-scroll-reverse { animation: logoScroll 45s linear infinite reverse; }
+.logo-row:hover .logo-scroll,
+.logo-row:hover .logo-scroll-reverse { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-scroll, .logo-scroll-reverse { animation: none; }
+}
+@keyframes wordIn {
+  from { opacity: 0; transform: translateX(-32px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to { opacity: 1; transform: none; }
+}
+
+.word-in {
+  opacity: 0;
+  animation: wordIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.slide-in-right {
+  opacity: 0;
+  animation: slideInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+}
+
+@keyframes wordFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-in,
+  .slide-in-right {
+    animation-name: wordFade;
+  }
+}

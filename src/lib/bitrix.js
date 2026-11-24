@@ -14,7 +14,7 @@ export async function sendToBitrix(e) {
           TITLE: `Website enquiry: ${e.service}`,
           NAME: e.name,
           PHONE: [{ VALUE: e.phone, VALUE_TYPE: "WORK" }],
-          EMAIL: [{ VALUE: e.email, VALUE_TYPE: "WORK" }],
+          ...(e.email ? { EMAIL: [{ VALUE: e.email, VALUE_TYPE: "WORK" }] } : {}),
           SOURCE_ID: "WEB",
           SOURCE_DESCRIPTION: e.source_blog_slug
             ? `Blog: ${e.source_blog_slug}`

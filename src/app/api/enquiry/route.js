@@ -11,29 +11,29 @@ export async function POST(request) {
     return NextResponse.json({ error: "Invalid" }, { status: 400 });
   }
 
-  if (!data.name || !data.email || !data.phone || !data.country || !data.service) {
+  if (!data.name || !data.phone || !data.service) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
-  const email = String(data.email).trim().toLowerCase().slice(0, 200);
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+  const email = data.email ? String(data.email).trim().toLowerCase().slice(0, 200) : "";
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 
   const row = {
     name: String(data.name).slice(0, 200),
-    email,
+    email: email || null,
     phone: String(data.phone).slice(0, 50),
-    country: String(data.country).slice(0, 100),
+    country: data.country ? String(data.country).slice(0, 100) : "Not specified",
     service: String(data.service).slice(0, 200),
     message: data.message ? String(data.message).slice(0, 3000) : null,
     source_page: data.source_page ? String(data.source_page).slice(0, 300) : null,
     source_blog_slug: data.source_blog_slug ? String(data.source_blog_slug).slice(0, 200) : null,
   };
 
-  const { count: earlier } = await supabase
-    .from("enquiries")
-    .select("id", { count: "exact", head: true })
-    .eq("email", email);
+  let earlierQuery = supabase.from("enquiries").select("id", { count: "exact", head: true });
+  earlierQuery = email ? earlierQuery.eq("email", email) : earlierQuery.eq("phone", row.phone);
+  const { count: earlier } = await earlierQuery;
 
   const { data: members } = await supabase
     .from("team_members")
@@ -67,7 +67,7 @@ export async function POST(request) {
 
   const details = `
     <p><b>Name:</b> ${esc(row.name)}</p>
-    <p><b>Email:</b> ${esc(row.email)}</p>
+    <p><b>Email:</b> ${esc(row.email) || "-"}</p>
     <p><b>Phone:</b> ${esc(row.phone)}</p>
     <p><b>Country:</b> ${esc(row.country)}</p>
     <p><b>Service:</b> ${esc(row.service)}</p>
@@ -78,24 +78,25 @@ export async function POST(request) {
     sendMail({
       to: (process.env.NOTIFY_EMAIL || "").split(","),
       subject: `New enquiry: ${row.service} (${row.country})`,
-      replyTo: row.email,
+      replyTo: row.email || undefined,
       html: layout(`<h2>New enquiry received</h2>
         ${earlier > 0 ? `<p style="color:#b45309"><b>Returning client:</b> ${earlier} earlier enquiry(ies)</p>` : ""}
         ${assignee ? `<p><b>Assigned to:</b> ${esc(assignee.name)}</p>` : "<p><b>Assigned to:</b> nobody yet</p>"}
         ${details}`),
     }),
-    sendMail({
-      to: row.email,
-      subject: "We received your enquiry | Credence Regulatory",
-      html: layout(`<h2>Thank you, ${esc(row.name)}</h2>
-        <p>We have received your enquiry about <b>${esc(row.service)}</b>. Our team will review it and get back to you soon.</p>
-        <p>If it is urgent, you can message us on WhatsApp at +91 8800672422.</p>`),
-    }),
+    email &&
+      sendMail({
+        to: email,
+        subject: "We received your enquiry | Credence Regulatory",
+        html: layout(`<h2>Thank you, ${esc(row.name)}</h2>
+          <p>We have received your enquiry about <b>${esc(row.service)}</b>. Our team will review it and get back to you soon.</p>
+          <p>If it is urgent, you can message us on WhatsApp at +91 8800672422.</p>`),
+      }),
     assignee &&
       sendMail({
         to: assignee.email,
         subject: `Enquiry assigned to you: ${row.service}`,
-        replyTo: row.email,
+        replyTo: row.email || undefined,
         html: layout(`<h2>A new enquiry is assigned to you</h2>${details}`),
       }),
     (async () => {
