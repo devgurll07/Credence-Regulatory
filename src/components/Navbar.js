@@ -46,7 +46,7 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
           <p>🌍 Global Business Compliance Partner</p>
           <div className="flex gap-6">
-            <a href="tel:+917042032325" className="hover:text-white">📞 +91 7042032325</a>
+            <a href="tel:+917042032325" className="hover:text-white">📞 +91 7042032325 📞 +91 9211706854</a>
             <a href="mailto:sails.credenceregulatory@gmail.com" className="hover:text-white">
               ✉ sails.credenceregulatory@gmail.com
             </a>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const pill =
@@ -17,13 +17,21 @@ const icon = {
   "aria-hidden": true,
 };
 
+const CALL_LINES = [
+  { label: "Primary Line", number: "+91 7042032325", href: "tel:+917042032325" },
+  { label: "Alternate Line", number: "+91 9211706854", href: "tel:+919211706854" },
+];
+
 export default function WhatsAppButton() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const wrapRef = useRef(null);
 
   // Hide the floating buttons while an enquiry form (#enquiry) is on screen
   useEffect(() => {
     setHidden(false);
+    setMenuOpen(false);
     const target = document.getElementById("enquiry");
     if (!target) return;
     const obs = new IntersectionObserver(([entry]) => setHidden(entry.isIntersecting), { threshold: 0.05 });
@@ -31,22 +39,80 @@ export default function WhatsAppButton() {
     return () => obs.disconnect();
   }, [pathname]);
 
+  // Close call options when clicking outside
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleOutsideClick = (e) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [menuOpen]);
+
   return (
     <div
+      ref={wrapRef}
       className={`fixed bottom-4 right-3 z-50 flex flex-col items-end gap-2 transition duration-300 sm:bottom-5 sm:right-5 sm:gap-3 ${
         hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
       }`}
     >
-      <a
-        href="tel:+917042032325"
-        aria-label="Call us at +91 7042032325"
-        className={`${pill} bg-gold hover:opacity-90`}
-      >
-        <svg {...icon}>
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg>
-        <span className="hidden sm:inline">+91 7042032325</span>
-      </a>
+      {/* Expandable Call Lines Popover */}
+      <div className="relative flex flex-col items-end">
+        {menuOpen && (
+          <div className="mb-2 w-60 overflow-hidden rounded-2xl border border-white/20 bg-gold text-white shadow-2xl">
+            <div className="border-b border-white/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-white/85">
+              Choose a number to call
+            </div>
+            <div className="divide-y divide-white/15">
+              {CALL_LINES.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-between px-4 py-3 transition hover:bg-black/15"
+                >
+                  <div>
+                    <p className="text-[11px] text-white/80">{item.label}</p>
+                    <p className="text-sm font-bold tracking-wide">{item.number}</p>
+                  </div>
+                  <svg {...icon}>
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <button
+          type="button"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-expanded={menuOpen}
+          aria-label="Call us"
+          className={`${pill} bg-gold hover:opacity-95`}
+        >
+          <svg {...icon}>
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          <span className="hidden sm:inline">+91 7042032325</span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            className={`hidden h-4 w-4 transition-transform duration-200 sm:inline ${
+              menuOpen ? "rotate-180" : ""
+            }`}
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+      </div>
 
       <a
         href="https://wa.me/918800672422?text=Hello%20Credence%20Regulatory%2C%20I%20need%20help%20with%20my%20business%20services."

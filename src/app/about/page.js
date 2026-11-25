@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Reveal from "../../components/Reveal";
 import VideoBox from "../../components/VideoBox";
-import BgMedia from "../../components/BgMedia";
 import AnimatedBg from "../../components/AnimatedBg";
-
+import EnquiryForm from "../../components/EnquiryForm";
 
 export const metadata = {
   title: "About Us | Credence Regulatory",
@@ -18,96 +17,119 @@ const reasons = [
   { title: "Dedicated Support", text: "One point of contact, reachable on phone, email and WhatsApp." },
 ];
 
+const h2 =
+  "font-[family-name:var(--font-playfair)] text-3xl font-bold text-[#0d0b3e] md:text-4xl";
+const para = "mt-4 text-base font-medium leading-8 text-[#1c1a4a] md:text-lg";
+
 export default function AboutPage() {
   return (
     <main>
-        {/* HEADER + WHO WE ARE (ek hi background image) */}
-<div className="relative overflow-hidden bg-navy text-white">
-  <BgMedia image="/images/about/about-who-we-are.jpeg" alt="" opacity={10} />
-  <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/65 to-navy/90" />
-
-  {/* Header */}
-  <div className="relative z-10 mx-auto max-w-7xl px-6 pb-8 pt-16">
-    <p className="text-sm font-semibold uppercase tracking-widest text-gold">About Credence Regulatory</p>
-    <h1 className="mt-3 max-w-3xl font-[family-name:var(--font-playfair)] text-4xl font-bold md:text-5xl">
-      Your Trusted Partner for Cross-Border Business Compliance
-    </h1>
-  </div>
-
-  {/* Who We Are */}
-  <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-12 md:grid-cols-2">
-    <Reveal>
-      <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold md:text-4xl">Who We Are</h2>
-      <p className="mt-4 text-lg leading-8 text-gray-200">
-        Credence Regulatory is a professional services firm that helps international
-        businesses set up, protect and grow their presence across borders. We handle
-        foreign company registration, document attestation and international
-        trademark registration from start to finish.
-      </p>
-      <p className="mt-4 text-lg leading-8 text-gray-200">
-        Our aim is simple: remove the legal and paperwork complexity so you can focus on your business.
-      </p>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-lg border border-white/15 bg-white/10 p-5 backdrop-blur-md">
-          <h3 className="font-semibold text-gold">Our Mission</h3>
-          <p className="mt-2 text-sm text-gray-100">Make international expansion simple, compliant and stress-free.</p>
+      {/* HEADER */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f6f4ff] to-white">
+        <AnimatedBg variant="light" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-10 pt-12 sm:px-6 md:pb-14 md:pt-16">
+          <span className="inline-block rounded-full bg-[#ece8ff] px-4 py-1 text-xs font-bold uppercase tracking-widest text-[#4b2fd0]">
+            About Credence Regulatory
+          </span>
+          <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-playfair)] text-3xl font-bold leading-tight text-[#0d0b3e] sm:text-4xl md:text-5xl">
+            Your Trusted Partner for Cross-Border{" "}
+            <span className="text-[#6c47ff]">Business Compliance</span>
+          </h1>
+          <div className="mt-4 h-1 w-16 rounded bg-[#6c47ff]" />
         </div>
-        <div className="rounded-lg border border-white/15 bg-white/10 p-5 backdrop-blur-md">
-          <h3 className="font-semibold text-gold">Our Vision</h3>
-          <p className="mt-2 text-sm text-gray-100">Be the most trusted regulatory partner for global businesses.</p>
+      </section>
+
+      {/* CONTENT + ENQUIRY FORM */}
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 sm:px-6 md:py-14 lg:flex-row lg:items-start lg:gap-12">
+        <div className="min-w-0 flex-1 space-y-14 md:space-y-16">
+          {/* Who We Are */}
+          <Reveal>
+            <h2 className={h2}>Who We Are</h2>
+            <p className={para}>
+              Credence Regulatory is a professional services firm that helps international
+              businesses set up, protect and grow their presence across borders. We handle
+              foreign company registration, document attestation and international
+              trademark registration from start to finish.
+            </p>
+            <p className={para}>
+              Our aim is simple: remove the legal and paperwork complexity so you can focus on your business.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border-l-4 border-[#6c47ff] bg-white p-5 shadow-sm ring-1 ring-[#6c47ff]/10">
+                <h3 className="text-lg font-bold text-[#0d0b3e]">Our Mission</h3>
+                <p className="mt-2 text-sm font-medium text-[#1c1a4a] md:text-base">
+                  Make international expansion simple, compliant and stress-free.
+                </p>
+              </div>
+              <div className="rounded-xl border-l-4 border-[#6c47ff] bg-white p-5 shadow-sm ring-1 ring-[#6c47ff]/10">
+                <h3 className="text-lg font-bold text-[#0d0b3e]">Our Vision</h3>
+                <p className="mt-2 text-sm font-medium text-[#1c1a4a] md:text-base">
+                  Be the most trusted regulatory partner for global businesses.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <VideoBox title="Who We Are" src="/videos/who-we-are.mp4" />
+          </Reveal>
+
+          {/* Why Choose Us */}
+          <Reveal>
+            <h2 className={h2}>Why Choose Us</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {reasons.map((r, i) => (
+                <div
+                  key={r.title}
+                  className="rounded-xl bg-white p-5 shadow-[0_8px_24px_-14px_rgba(76,50,190,0.3)] ring-1 ring-[#6c47ff]/10 transition hover:-translate-y-1 hover:ring-[#6c47ff]/40"
+                >
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ece8ff] text-sm font-bold text-[#5a38e6]">
+                    {i + 1}
+                  </span>
+                  <h3 className="mt-3 text-lg font-bold text-[#0d0b3e]">{r.title}</h3>
+                  <p className="mt-1 text-sm font-medium leading-relaxed text-[#1c1a4a] md:text-base">{r.text}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
+
+        {/* Enquiry form */}
+        <aside
+          id="enquiry"
+          className="w-full scroll-mt-24 lg:sticky lg:top-24 lg:w-[22rem] lg:shrink-0 lg:self-start xl:w-[24rem]"
+        >
+          <EnquiryForm />
+        </aside>
       </div>
-    </Reveal>
-    <Reveal>
-      <VideoBox title="Who We Are" src="/videos/who-we-are.mp4" />
-    </Reveal>
-  </div>
-</div>
-      {/* WHY CHOOSE US */}
-<section className="relative overflow-hidden bg-navy text-white">
-  <BgMedia image="/images/about/about-why-choose-us.png" alt="" opacity={10} position="right center" />
-  <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-navy to-transparent" />
-  <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/20" />
 
-  <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
-    <Reveal className="md:w-1/2">
-      <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold md:text-4xl">Why Choose Us</h2>
-      <div className="mt-8 space-y-4">
-        {reasons.map((r) => (
-          <div key={r.title} className="rounded-lg border border-white/15 bg-white/10 p-5 backdrop-blur-md">
-            <h3 className="font-semibold text-gold">{r.title}</h3>
-            <p className="mt-1 text-sm text-gray-100">{r.text}</p>
+      {/* CTA */}
+      <section className="px-4 pb-12 sm:px-6 md:pb-16">
+        <div className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-br from-[#f6f4ff] to-[#e6e9ff] px-6 py-12 text-center shadow-sm ring-1 ring-[#6c47ff]/10 md:py-14">
+          <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold text-[#0d0b3e] md:text-4xl">
+            Let&rsquo;s Talk About Your Business
+          </h2>
+          <p className="mt-4 text-base font-medium text-[#1c1a4a] md:text-lg">
+            Share your requirement and our experts will guide you on the next steps.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-[#6c47ff] px-8 py-3 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#5a38e6]"
+            >
+              Talk to an Expert <span aria-hidden="true">&rarr;</span>
+            </Link>
+            <a
+              href="https://wa.me/918800672422"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full border-2 border-[#6c47ff] px-8 py-3 font-semibold text-[#2a1a8f] transition hover:-translate-y-0.5 hover:bg-[#6c47ff] hover:text-white"
+            >
+              Chat on WhatsApp
+            </a>
           </div>
-        ))}
-      </div>
-    </Reveal>
-  </div>
-</section>
-
-      <section className="relative overflow-hidden bg-navy text-white">
-  <AnimatedBg variant="dark" />
-  <div className="relative z-10 mx-auto max-w-4xl px-6 py-20 text-center">
-    <h2 className="font-[family-name:var(--font-playfair)] text-3xl font-bold md:text-5xl">
-      Let's Talk About Your Business
-    </h2>
-    <p className="mt-4 text-lg text-gray-200">
-      Share your requirement and our experts will guide you on the next steps.
-    </p>
-    <div className="mt-8 flex flex-wrap justify-center gap-4">
-      <Link href="/contact" className="rounded bg-gold px-8 py-3 font-semibold text-white shadow-lg transition hover:scale-105">
-        Talk to an Expert
-      </Link>
-      <a
-        href="https://wa.me/918800672422"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded border border-white px-8 py-3 font-semibold transition hover:bg-white hover:text-ink"
-      >
-        Chat on WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
     </main>
   );
 }

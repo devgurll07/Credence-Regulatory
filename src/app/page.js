@@ -36,7 +36,6 @@ export default function Home() {
       <Hero />
       <Stats />
       <ClientLogos />
-      <CertificateGallery items={certificates} />
       <Testimonials />
 
       {/* TICKER */}

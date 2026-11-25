@@ -5,7 +5,9 @@ import EnquiryForm from "../../../components/EnquiryForm";
 import { allServices } from "../../../data/allServices";
 import { serviceContent, whyUs } from "../../../data/serviceContent";
 import CertificateGallery from "../../../components/CertificateGallery";
-import { certificatesFor } from "../../../data/certificates";
+import { certificatesFor, flipbookFor } from "../../../data/certificates";
+import CertificateFlipbook from "../../../components/CertificateFlipbook";
+
 
 
 export function generateStaticParams() {
@@ -104,6 +106,7 @@ export default async function ServiceDetail({ params }) {
   const who = Array.isArray(s.whoUses) ? s.whoUses : s.whoNeedsIt ? [s.whoNeedsIt] : [];
   const related = s.group ? allServices.filter((x) => x.slug !== slug && x.group === s.group).slice(0, 6) : [];
   const para = "text-lg leading-8 text-gray-600";
+  const book = flipbookFor(`${s.slug} ${s.title}`);
 
   return (
     <main>
@@ -256,8 +259,11 @@ export default async function ServiceDetail({ params }) {
   </a>
 </aside>
       </div>
-
-      <CertificateGallery items={certificatesFor(`${s.slug} ${s.title}`)} />
+    {book ? (
+  <CertificateFlipbook pages={book.pages} title={book.title} subtitle={book.subtitle} />
+) : (
+  <CertificateGallery items={certificatesFor(`${s.slug} ${s.title}`)} />
+)}
     </main>
   );
 }
