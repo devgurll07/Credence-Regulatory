@@ -35,6 +35,7 @@ export default function Footer() {
             <li><Link href="/blog" className={link}>Blog</Link></li>
             <li><Link href="/about" className={link}>About</Link></li>
             <li><Link href="/contact" className={link}>Contact</Link></li>
+            <li><Link href="/certificates" className={link}>Certificates</Link></li>
             <li><Link href="/privacy-policy" className={link}>Privacy Policy</Link></li>
             <li><Link href="/terms" className={link}>Terms &amp; Conditions</Link></li>
           </ul>

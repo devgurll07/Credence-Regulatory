@@ -9,6 +9,8 @@ import ReviewForm from "../components/ReviewForm";
 import Hero from "../components/Hero";
 import { generalFaqs } from "../data/faqs";
 import ClientLogos from "../components/ClientLogos";
+import CertificateGallery from "../components/CertificateGallery";
+import { certificates } from "../data/certificates";
 
 export const revalidate = 300;
 
@@ -34,6 +36,7 @@ export default function Home() {
       <Hero />
       <Stats />
       <ClientLogos />
+      <CertificateGallery items={certificates} />
       <Testimonials />
 
       {/* TICKER */}

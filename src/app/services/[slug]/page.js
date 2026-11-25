@@ -4,6 +4,9 @@ import ServiceIcon from "../../../components/ServiceIcon";
 import EnquiryForm from "../../../components/EnquiryForm";
 import { allServices } from "../../../data/allServices";
 import { serviceContent, whyUs } from "../../../data/serviceContent";
+import CertificateGallery from "../../../components/CertificateGallery";
+import { certificatesFor } from "../../../data/certificates";
+
 
 export function generateStaticParams() {
   return allServices.map((s) => ({ slug: s.slug }));
@@ -233,22 +236,28 @@ export default async function ServiceDetail({ params }) {
           )}
         </div>
 
-        <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-2xl bg-cream p-4 shadow-sm ring-1 ring-gold/30">
-            <h3 className="px-2 pb-3 pt-2 text-xl font-bold text-navy">Submit Your Request</h3>
-            <EnquiryForm defaultService={s.title} />
-          </div>
-          {s.timeline && (
-            <div className="rounded-xl border border-gold/30 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-bold text-navy">Typical Timeline</h3>
-              <p className="mt-2 text-gray-600">{s.timeline}</p>
-            </div>
-          )}
-          <a href="https://wa.me/918800672422" target="_blank" rel="noopener noreferrer" className="block rounded-xl bg-navy px-5 py-4 text-center font-semibold text-white hover:opacity-90">
-            Chat on WhatsApp
-          </a>
-        </aside>
+        <aside id="enquiry" className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+  <EnquiryForm defaultService={s.title} />
+
+  {s.timeline && (
+    <div className="rounded-xl border border-gold/30 bg-white p-6 shadow-sm">
+      <h3 className="text-lg font-bold text-navy">Typical Timeline</h3>
+      <p className="mt-2 text-gray-600">{s.timeline}</p>
+    </div>
+  )}
+
+  <a
+    href="https://wa.me/918800672422"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block rounded-xl bg-navy px-5 py-4 text-center font-semibold text-white hover:opacity-90"
+  >
+    Chat on WhatsApp
+  </a>
+</aside>
       </div>
+
+      <CertificateGallery items={certificatesFor(`${s.slug} ${s.title}`)} />
     </main>
   );
 }
