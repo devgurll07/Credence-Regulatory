@@ -1,8 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
 import Link from "next/link";
-import { allServices } from "../data/allServices";
 import {
   Building2,
   Globe,
@@ -19,6 +15,12 @@ import {
   CheckCircle2,
   Sparkles,
 } from "lucide-react";
+import { allServices } from "../data/allServices";
+
+// Explore button: the third colour of the logo (pink), slightly deeper so white text stays readable.
+// For the exact logo pink use from-[#f07fb7] to-[#e4639f]. For the blue instead: from-[#4776e8] to-[#3b63cf].
+const EXPLORE_BTN =
+  "inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#e0559a] to-[#cc3d84] px-4 py-2 text-xs font-bold text-white shadow-md shadow-pink-500/30 transition-all group-hover:gap-2.5 group-hover:brightness-110";
 
 const DOMAINS = [
   {
@@ -31,7 +33,6 @@ const DOMAINS = [
     docs: ["IEC Certificate", "Product Manual", "Authorization Letter"],
     description:
       "Mandatory pre-import packaging registration and wireless equipment type approval for smooth customs clearance.",
-    href: "/services/lmpc-wpc",
     accent: "from-indigo-500 to-blue-600",
   },
   {
@@ -44,7 +45,6 @@ const DOMAINS = [
     docs: ["Brand Mark / Logo", "MSME / Startup Cert", "User Affidavit"],
     description:
       "End-to-end trademark & IP protection, international filings, and DGFT export-import licensing support.",
-    href: "/services/ipr-export-import",
     accent: "from-violet-500 to-purple-600",
   },
   {
@@ -57,7 +57,6 @@ const DOMAINS = [
     docs: ["GST & CIN", "Product BOM Details", "Recycler Agreement"],
     description:
       "Extended Producer Responsibility (E-Waste, Plastic, Battery) registration and statutory compliance filings.",
-    href: "/services/environmental-compliances",
     accent: "from-emerald-500 to-teal-600",
   },
   {
@@ -70,7 +69,6 @@ const DOMAINS = [
     docs: ["Lab Test Reports", "Unit / Layout Details", "Quality Records"],
     description:
       "Core business licenses, product certifications, and statutory registrations for growing enterprises.",
-    href: "/services/legal-licenses",
     accent: "from-amber-500 to-orange-600",
   },
   {
@@ -83,7 +81,6 @@ const DOMAINS = [
     docs: ["KYC & Incorporation", "MOA / AOA Drafts", "Attestation / PoA"],
     description:
       "International entity setup, apostille, embassy attestation, and global expansion structuring.",
-    href: "/services/global-services",
     accent: "from-sky-500 to-cyan-600",
   },
   {
@@ -96,12 +93,12 @@ const DOMAINS = [
     docs: ["Filing Calendar", "Regulatory Ledger", "Audit Checklist"],
     description:
       "Continuous cross-border regulatory governance, filings, and dedicated compliance advisory.",
-    href: "/services/global-compliances",
     accent: "from-fuchsia-500 to-pink-600",
   },
 ];
 
-// Exact service slug per card. Fill a slug here to pin the link; if empty, the keywords below are used.
+// To pin a card to an exact service page, write that service's slug here
+// (the part after /services/ in its address). Empty = it is found by the keywords below.
 const SLUGS = {
   "lmpc-wpc": "",
   "ipr-export-import": "",
@@ -113,14 +110,14 @@ const SLUGS = {
 
 const KEYS = {
   "lmpc-wpc": ["lmpc", "wpc"],
-  "ipr-export-import": ["ipr", "trademark", "import"],
-  "environmental-compliances": ["epr", "environment", "waste"],
-  "legal-licenses": ["licen", "certification", "bis", "fssai"],
-  "global-services": ["global services", "global business", "apostille"],
-  "global-compliances": ["global compliance", "compliance"],
+  "ipr-export-import": ["import", "trademark"],
+  "environmental-compliances": ["epr", "e-waste", "environment"],
+  "legal-licenses": ["licen", "legal, ca"],
+  "global-services": ["global business setup", "apostille"],
+  "global-compliances": ["global compliance"],
 };
 
-// Link to a real service page; falls back to /services if nothing matches.
+// Finds the real service page for a card; falls back to /services if nothing matches.
 function hrefFor(id) {
   const pinned = SLUGS[id];
   if (pinned && allServices.some((s) => s.slug === pinned)) return `/services/${pinned}`;
@@ -162,10 +159,8 @@ const TRUST_METRICS = [
 ];
 
 export default function Stats() {
-  const [activeId, setActiveId] = useState(DOMAINS[0].id);
-
   return (
-    <section className="relative overflow-hidden bg-[#f8f9fc] py-20 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#f8f9fc] px-4 py-20 sm:px-6 lg:px-8">
       {/* Subtle Technical Blueprint Grid Background */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.45]"
@@ -182,7 +177,7 @@ export default function Stats() {
       <div className="relative mx-auto max-w-7xl">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-white/90 px-4 py-1.5 text-xs font-semibold tracking-wider text-indigo-700 uppercase shadow-xs backdrop-blur-xs">
+          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-indigo-700 shadow-xs">
             <Sparkles className="h-3.5 w-3.5 text-indigo-600" />
             Our Impact
           </div>
@@ -194,14 +189,14 @@ export default function Stats() {
           </p>
         </div>
 
-        {/* Top 3D Bento Impact Cards */}
+        {/* Top Impact Cards */}
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
           {IMPACT_STATS.map((stat) => {
             const Icon = stat.icon;
             return (
               <div
                 key={stat.label}
-                className="group relative rounded-2xl border border-slate-200/90 bg-white/90 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/10"
+                className="group relative rounded-2xl border border-slate-200/90 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/10"
               >
                 <div className="absolute inset-x-6 top-0 h-0.5 rounded-full bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-60 transition-opacity group-hover:opacity-100" />
 
@@ -218,9 +213,7 @@ export default function Stats() {
                   <div className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
                     {stat.value}
                   </div>
-                  <div className="mt-1 text-sm font-semibold text-slate-800">
-                    {stat.label}
-                  </div>
+                  <div className="mt-1 text-sm font-semibold text-slate-800">{stat.label}</div>
                   <div className="mt-0.5 text-xs text-slate-500">{stat.sub}</div>
                 </div>
               </div>
@@ -234,85 +227,59 @@ export default function Stats() {
             <h3 className="font-serif text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Trusted Compliance &amp; Technology Partner
             </h3>
-            <p className="mt-2 text-sm text-slate-600 sm:text-base">
-              Your Growth. Our Commitment.
-            </p>
+            <p className="mt-2 text-sm text-slate-600 sm:text-base">Your Growth. Our Commitment.</p>
           </div>
 
           <div className="mt-7 grid grid-cols-2 gap-3 rounded-2xl border border-slate-200/80 bg-slate-900 p-4 text-white shadow-lg sm:grid-cols-4 sm:p-5">
             {TRUST_METRICS.map((item) => (
               <div
                 key={item.label}
-                className="flex flex-col items-center justify-center border-slate-800 px-3 py-1 text-center sm:border-r last:border-r-0"
+                className="flex flex-col items-center justify-center border-slate-800 px-3 py-1 text-center last:border-r-0 sm:border-r"
               >
-                <span className="text-xl font-bold text-indigo-300 sm:text-2xl">
-                  {item.value}
-                </span>
-                <span className="mt-0.5 text-xs font-medium text-slate-300">
-                  {item.label}
-                </span>
+                <span className="text-xl font-bold text-indigo-300 sm:text-2xl">{item.value}</span>
+                <span className="mt-0.5 text-xs font-medium text-slate-300">{item.label}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Interactive Compliance Radar / Domain Matrix */}
+        {/* Service blocks: the whole block is one link to the service page */}
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {DOMAIN_LIST.map((domain) => {
             const Icon = domain.icon;
-            const isActive = activeId === domain.id;
 
             return (
-              <div
+              <Link
                 key={domain.id}
-                onMouseEnter={() => setActiveId(domain.id)}
-                onClick={() => setActiveId(domain.id)}
-                className={`group relative cursor-pointer overflow-hidden rounded-2xl border p-6 transition-all duration-300 ${
-                  isActive
-                    ? "-translate-y-1 border-indigo-500/70 bg-white shadow-2xl shadow-indigo-500/15 ring-2 ring-indigo-500/20"
-                    : "border-slate-200/90 bg-white/85 hover:border-indigo-300 hover:bg-white hover:shadow-lg"
-                }`}
+                href={domain.href}
+                className="group relative block cursor-pointer overflow-hidden rounded-2xl border border-slate-200/90 bg-white/85 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/70 hover:bg-white hover:shadow-2xl hover:shadow-indigo-500/15 hover:ring-2 hover:ring-indigo-500/20 focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <div
-                  className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${domain.accent} transition-opacity duration-300 ${
-                    isActive ? "opacity-100" : "opacity-0 group-hover:opacity-70"
-                  }`}
+                  className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${domain.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
                 />
 
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
-                        isActive
-                          ? "bg-indigo-600 text-white shadow-md shadow-indigo-500/30"
-                          : "bg-slate-100 text-slate-700 group-hover:bg-indigo-50 group-hover:text-indigo-600"
-                      }`}
-                    >
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700 transition-colors duration-300 group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-md group-hover:shadow-indigo-500/30">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <span className="inline-block text-[11px] font-semibold tracking-wide text-indigo-600 uppercase">
+                      <span className="inline-block text-[11px] font-semibold uppercase tracking-wide text-indigo-600">
                         {domain.tag}
                       </span>
-                      <h4 className="text-base font-bold text-slate-900">
-                        {domain.title}
-                      </h4>
+                      <h4 className="text-base font-bold text-slate-900">{domain.title}</h4>
                     </div>
                   </div>
 
-                  <Link
-                    href={domain.href}
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-indigo-600 hover:bg-indigo-600 hover:text-white"
-                    aria-label={`Explore ${domain.title}`}
+                  <span
+                    aria-hidden="true"
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors group-hover:border-indigo-600 group-hover:bg-indigo-600 group-hover:text-white"
                   >
                     <ArrowUpRight className="h-4 w-4" />
-                  </Link>
+                  </span>
                 </div>
 
-                <p className="mt-3.5 text-sm leading-relaxed text-slate-600">
-                  {domain.description}
-                </p>
+                <p className="mt-3.5 text-sm leading-relaxed text-slate-600">{domain.description}</p>
 
                 <div className="mt-4 border-t border-slate-100 pt-4">
                   <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
@@ -320,13 +287,11 @@ export default function Stats() {
                       <Clock className="h-3.5 w-3.5" />
                       {domain.timeline}
                     </span>
-                    <span className="font-medium text-slate-500">
-                      {domain.authority}
-                    </span>
+                    <span className="font-medium text-slate-500">{domain.authority}</span>
                   </div>
 
                   <div className="mt-3">
-                    <div className="flex items-center gap-1 text-[11px] font-semibold text-slate-400 uppercase">
+                    <div className="flex items-center gap-1 text-[11px] font-semibold uppercase text-slate-400">
                       <FileCheck2 className="h-3 w-3 text-emerald-600" />
                       Key Documents Required
                     </div>
@@ -342,21 +307,14 @@ export default function Stats() {
                     </div>
                   </div>
 
-                  <div className="mt-4 flex items-center justify-between pt-1">
-                    <Link
-                      href={domain.href}
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 transition-colors hover:text-indigo-800"
-                    >
+                  <div className="mt-4 flex items-center pt-1">
+                    <span className={EXPLORE_BTN}>
                       Explore Service
                       <ArrowUpRight className="h-3.5 w-3.5" />
-                    </Link>
-                    <span className="text-[11px] text-slate-400">
-                      {isActive ? "Active Preview" : "Hover or tap to inspect"}
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
