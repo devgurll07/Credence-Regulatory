@@ -48,7 +48,7 @@ export default function Navbar() {
           <div className="flex gap-6">
             <a href="tel:+917042032325" className="hover:text-white">📞 +91 7042032325 📞 +91 9211706854</a>
             <a href="mailto:sails.credenceregulatory@gmail.com" className="hover:text-white">
-              ✉ sails.credenceregulatory@gmail.com
+              ✉ sales.credenceregulatory@gmail.com
             </a>
           </div>
         </div>

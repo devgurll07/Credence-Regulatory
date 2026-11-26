@@ -48,7 +48,7 @@ export default function Footer() {
             <li>Phone: <a href="tel:+919211706854" className={link}>+91 9211706854</a></li>
             <li>WhatsApp: <a href="https://wa.me/918800672422" className={link}>+91 8800672422</a></li>
             <li>
-              <a href="mailto:sails.credenceregulatory@gmail.com" className={`break-all ${link}`}>
+              <a href="mailto:sales.credenceregulatory@gmail.com" className={`break-all ${link}`}>
                 sails.credenceregulatory@gmail.com
               </a>
             </li>
