@@ -49,7 +49,7 @@ export default function Footer() {
             <li>WhatsApp: <a href="https://wa.me/918800672422" className={link}>+91 8800672422</a></li>
             <li>
               <a href="mailto:sales.credenceregulatory@gmail.com" className={`break-all ${link}`}>
-                sails.credenceregulatory@gmail.com
+                sales.credenceregulatory@gmail.com
               </a>
             </li>
           </ul>
